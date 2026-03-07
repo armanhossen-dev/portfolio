@@ -1,4 +1,4 @@
-// CURSOR
+// cursor
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
@@ -33,13 +33,28 @@ window.addEventListener('scroll', () => {
 const menuBtn = document.getElementById('menuBtn');
 const mobileNav = document.getElementById('mobileNav');
 const menuIconEl = document.getElementById('menuIcon');
+
 menuBtn.addEventListener('click', () => {
   mobileNav.classList.toggle('open');
-  menuIconEl.className = mobileNav.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  menuIconEl.className = mobileNav.classList.contains('open')
+    ? 'fa-solid fa-xmark'
+    : 'fa-solid fa-bars';
 });
+
+// close when clicking outside the links
+mobileNav.addEventListener('click', (e) => {
+  if (!e.target.closest('a')) {
+    mobileNav.classList.remove('open');
+    menuIconEl.className = 'fa-solid fa-bars';
+  }
+});
+
+// close when clicking a link
 document.querySelectorAll('.mn-link').forEach(a => {
-  a.addEventListener('click', () => { mobileNav.classList.remove('open'); 
-  menuIconEl.className = 'fa-solid fa-bars'; });
+  a.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    menuIconEl.className = 'fa-solid fa-bars';
+  });
 });
 
 //typed
@@ -47,7 +62,6 @@ new Typed('#typed', {
   strings: ['Dreamer', 'Student', 'Programmer', 'Developer', 'Thinker', 'Gamer', 'Innovator'],
   typeSpeed: 60, backSpeed: 50, loop: true
 });
-
 
 //scroll reveal
 const reveals = document.querySelectorAll('.reveal');
@@ -60,7 +74,6 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 reveals.forEach(r => io.observe(r));
-
 
 // contact form
 const scriptURL = "https://script.google.com/macros/s/AKfycbwbB_-7VS_lS9tehAI20iYgdDxGKHE0NSfIZS6FPFXvUjpjPD84qavwJnKAF_5wFTGd/exec";
@@ -87,6 +100,7 @@ form.addEventListener('submit', async (e) => {
 
 // theme toggle 
 const themeToggle = document.getElementById('themeToggle');
+
 // Night mode is default — load saved preference if any
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'light') {

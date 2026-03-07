@@ -8,7 +8,6 @@
   --shadow2: rgba(142, 242, 36, 0.28);
   --shadow3: rgba(142, 242, 36, 0.1);
   --accent: #8ef224;
-  --accent2: #000000;
   --text: #e8e8e8;
   --muted: #666;
   --font-display: 'Syne', sans-serif;
@@ -27,7 +26,7 @@ body {
   cursor: none;
 }
 
-/* CURSOR */
+/* cursor */
 .cursor {
   width: 10px; height: 10px;
   background: var(--accent);
@@ -37,11 +36,10 @@ body {
   z-index: 9999;
   transform: translate(-50%,-50%);
   transition: transform 0.1s, width 0.3s, height 0.3s, opacity 0.3s;
-  mix-blend-mode: difference;
 }
 .cursor-ring {
   width: 36px; height: 36px;
-  border: 1px solid rgba(142,242,36,0.5);
+  border: 1px solid var(--accent); 
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -120,6 +118,21 @@ header.scrolled {
   text-transform: uppercase;
 }
 .logo span { color: var(--accent); }
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: none;
+  position: relative;
+  z-index: 200; 
+}
+
+@media (max-width: 768px) {
+  .menu-btn { display: block; }
+}
 
 nav { display: flex; gap: 2.5rem; align-items: center; }
 nav a {
@@ -216,8 +229,7 @@ body.light-mode {
   --shadow2: rgba(0, 0, 0, 0.12);
   --shadow3: rgba(0, 0, 0, 0.06);
   --accent: #ffaa00;
-  --accent2: #000000;
-  --text: #111111;
+   --text: #111111;
   --muted: #6b7280;
   --font-display: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
@@ -249,30 +261,44 @@ body.light-mode .preloader {
 }
 
 body.light-mode ::-webkit-scrollbar-thumb {
-  background: rgba(142,242,36,0.5);
+  background: var(--card-border);
 }
 
 .menu-btn {
   display: none;
-  background: none; border: none;
+  background: none;
+  border: none;
   color: var(--text);
   font-size: 1.5rem;
   cursor: none;
-  z-index: 200;
+  z-index: 9999;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+    position: relative;
+    z-index: 9999;
+  }
 }
 
 /* MOBILE NAV */
 .mobile-nav {
   position: fixed; inset: 0;
-  background: rgba(10,10,10,0.97);
-  backdrop-filter: blur(30px);
-  z-index: 150;
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 160;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 2rem;
   opacity: 0; visibility: hidden;
   transition: opacity 0.4s, visibility 0.4s;
+  cursor: pointer; 
 }
+
 .mobile-nav.open { opacity: 1; visibility: visible; }
+
 .mobile-nav a {
   font-family: var(--font-display);
   font-size: clamp(2rem, 8vw, 4rem);
@@ -281,9 +307,14 @@ body.light-mode ::-webkit-scrollbar-thumb {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: -1px;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s;
+  cursor: pointer;
 }
-.mobile-nav a:hover { color: var(--accent); }
+
+.mobile-nav a:hover {
+  color: var(--accent);
+  transform: translateX(8px);
+}
 
 /* home  */
 .hero {
@@ -559,7 +590,7 @@ body.light-mode ::-webkit-scrollbar-thumb {
 
   .hero-right {
     padding-top: 3.5rem;
-    order: -1; /* photo above name on mobile */
+    order: -1; 
   }
 
   .hero-photo-wrap {
@@ -708,7 +739,7 @@ section {
 .project-card::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(142,242,36,0.06), transparent 60%);
+  background: radial-gradient(circle at 50% 0%, var(--shadow1), transparent 60%);
   opacity: 0;
   transition: opacity 0.4s;
 }
@@ -921,7 +952,7 @@ footer {
 /* SCROLLBAR */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(142,242,36,0.3); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: var(--shadow2); border-radius: 2px; }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
@@ -932,7 +963,6 @@ footer {
 @media (max-width: 768px) {
   header { padding: 1rem 1.5rem; }
   nav { display: none; }
-  .menu-btn { display: block; }
   .hero { padding: 0 1.5rem 4rem; }
   .hero-name { letter-spacing: -2px; }
   section { padding: 5rem 1.5rem; }
