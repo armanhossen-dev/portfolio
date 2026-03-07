@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arman Hosse Ripon - Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <link rel="icon" type="image/png" href="img/ahrn-photo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+        <!-- cursor  -->
+        <div class="cursor" id="cursor"></div>
+        <div class="cursor-ring" id="cursorRing"></div>
+
+        <!-- preloader  -->
+        <!-- <div class="preloader" id="preloader">
+            <div class="preloader-count" id="preCount">0</div>
+            <div class="preloader-line" id="preloadLine"></div>
+        </div> -->
+
+        <!-- header -->
+        <header id="header">
+        <a href="#" class="logo">AHRN<span>.</span></a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle Light/Dark Mode">
+            <span class="toggle-track">
+                <span class="toggle-icon sun"><i class="fa-solid fa-sun"></i></span>
+                <span class="toggle-icon moon"><i class="fa-solid fa-moon"></i></span>
+                <span class="toggle-thumb"></span>
+            </span>
+        </button>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">
+            <i class="fa-solid fa-bars" id="menuIcon"></i>
+        </button>
+        </header>
+
+        <!-- mobile nav  -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#about" class="mn-link">About</a>  
+            <a href="#projects" class="mn-link">Projects</a>
+            <a href="#resume" class="mn-link">Resume</a>
+            <a href="#contact" class="mn-link">Contact</a>
+        </div>
+
+        <!-- hero  -->
+        <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+
+        <div class="hero-content">
+            <div class="hero-left">
+                <span class="hero-label">Portfolio — 2026</span>
+                <h1 class="hero-name">
+                Arman<br>
+                <span class="outline">Hossen</span>
+                </h1>
+                <p class="hero-role">I am a <span class="typed-text" id="typed"></span></p>
+            </div>
+            <div class="hero-right">
+                        //add here the photo img/AHRN.png with 2/3 height 
+            </div>
+        </div>        
+            <div class="hero-bottom">
+                <div class="hero-links">
+                    <a href="https://www.linkedin.com/in/armanhossenripon" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://github.com/armanhossen-dev" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.facebook.com/i.am.ahrn" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/armanhossenripon/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@armanhossenripon" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://sites.google.com/view/armanhossenripon" target="_blank" title="Google Site"><i class="fa-brands fa-google"></i></a>
+                </div>
+                <div class="scroll-hint">
+                    <div class="scroll-line"></div>
+                    Scroll
+                </div>
+            </div>
+        </section>
+
+        <!-- about myself bro  -->
+        <section class="about" id="about">
+            <div class="about-inner">
+                <div class="about-text">
+                    <span class="section-tag reveal">Who I Am</span>
+                    <h2 class="section-title reveal">About Me!</h2>
+                    <p class="reveal">A passionate <b>Computer Science & Engineering</b> student at <b>Daffodil International University (DIU)</b>, currently based in Savar, Dhaka, Bangladesh — originally from <b>Bogura</b>.</p>
+                    <p class="reveal">I have a strong foundation in programming, problem-solving, and web development. My journey began at <b>Bogra Zilla School</b> and continued at <b>Govt. Shah Sultan College</b>, where a love for mathematics sparked my path into computer science.</p>
+                </div>
+                <div class="about-right reveal">
+                <span class="section-tag">Details</span>
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fa-solid fa-user"></i></div>
+                        <div class="info-content">
+                        <div class="info-label">Full Name</div>
+                        <div class="info-value">Md. Arman Hossen Ripon</div>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="info-content">
+                        <div class="info-label">Location</div>
+                        <div class="info-value">Savar, Dhaka, Bangladesh</div>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="info-content">
+                        <div class="info-label">University</div>
+                        <div class="info-value">Daffodil International University</div>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fa-solid fa-code"></i></div>
+                        <div class="info-content">
+                        <div class="info-label">Focus</div>
+                        <div class="info-value">Web Dev · AI/ML · Problem Solving</div>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fa-solid fa-gamepad"></i></div>
+                        <div class="info-content">
+                        <div class="info-label">Hobbies</div>
+                        <div class="info-value">Coding · Gaming · Innovating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-stats reveal">
+                <div class="stat-card">
+                    <div class="stat-num">6+</div>
+                    <div class="stat-label">Projects Built</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">2+</div>
+                    <div class="stat-label">Years Coding</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">CSE</div>
+                    <div class="stat-label">BSc at DIU</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">Infinity</div>
+                    <div class="stat-label">Curiosity</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- projects  -->
+        <section class="projects" id="projects">
+            <div class="projects-inner">
+                <span class="section-tag reveal">What I've Built</span>
+                <h2 class="section-title reveal">Projects.</h2>
+                <div class="projects-grid">
+                    <a class="project-card reveal" href="https://fitnessbot.vercel.app/" target="_blank">
+                        <div class="project-num">01 — AI</div>
+                        <div class="project-name">Fitness Chatbot</div>
+                        <p class="project-desc">An intelligent fitness assistant chatbot that answers health & workout queries using AI.</p>
+                        <div class="project-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </a>
+                    <a class="project-card reveal" href="https://unlockedstudio.vercel.app/" target="_blank">
+                        <div class="project-num">02 — Studio</div>
+                        <div class="project-name">UnlockedStudio v4.0</div>
+                        <p class="project-desc">A creative digital studio platform built with modern web technologies and animations.</p>
+                        <div class="project-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </a>
+                    <a class="project-card reveal" href="https://darktime.vercel.app/" target="_blank">
+                        <div class="project-num">03 — Tool</div>
+                        <div class="project-name">Dark Time</div>
+                        <p class="project-desc">A sleek dark-themed time utility app with minimal UI and elegant design.</p>
+                        <div class="project-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </a>
+                    <a class="project-card reveal" href="https://cloudtasks.vercel.app/" target="_blank">
+                        <div class="project-num">04 — Productivity</div>
+                        <div class="project-name">Cloud Tasks</div>
+                        <p class="project-desc">A cloud-synced task management app for organizing your daily workflow efficiently.</p>
+                        <div class="project-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </a>
+                    <a class="project-card reveal" href="https://ahrn.vercel.app/" target="_blank">
+                        <div class="project-num">05 — 3D</div>
+                        <div class="project-name">3D Web Experience</div>
+                        <p class="project-desc">An immersive 3D web experience showcasing creative use of WebGL and Three.js.</p>
+                        <div class="project-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </a>
+                    <a class="project-card reveal" href="https://unlockedstudio-v1.vercel.app" target="_blank">
+                        <div class="project-num">06 — Studio</div>
+                        <div class="project-name">UnlockedStudio</div>
+                        <p class="project-desc">The original UnlockedStudio — where the creative journey began.</p>
+                        <div class="project-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- resume  -->
+        <section class="resume-section" id="resume">
+            <div class="resume-inner">
+                <span class="section-tag reveal">My CV</span>
+                <h2 class="section-title reveal">Resume.</h2>
+                <div class="resume-cards">
+                    <a class="resume-card reveal" href="https://ahrn-resume.vercel.app/" target="_blank">
+                        <div class="resume-card-icon"><i class="fa-solid fa-globe"></i></div>
+                        <div class="resume-card-title">Online Resume</div>
+                        <div class="resume-card-sub">Interactive web-based resume with live projects and links.</div>
+                        <div class="resume-card-cta"><span>View Online</span> <i class="fa-solid fa-arrow-right fa-sm"></i></div>
+                    </a>
+                    <a class="resume-card reveal" href="https://drive.google.com/file/d/1lEE3JY5C4MRPZoO9ViUa1dxkuMXJKWcL/view" target="_blank">
+                        <div class="resume-card-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                        <div class="resume-card-title">Professional Resume</div>
+                        <div class="resume-card-sub">Clean, ATS-friendly PDF resume for job applications.</div>
+                        <div class="resume-card-cta"><span>Download PDF</span> <i class="fa-solid fa-arrow-right fa-sm"></i></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- contact  -->
+        <section class="contact" id="contact">
+            <div class="contact-inner">
+                <div class="contact-left">
+                    <span class="section-tag reveal">Get In Touch</span>
+                    <h2 class="section-title reveal">Let's Talk.</h2>
+                    <p class="reveal">Got a project, opportunity, or just want to say hi? I'm always open to interesting conversations and collaborations.</p>
+                    <div class="contact-links reveal">
+                        <a class="contact-link" href="https://www.linkedin.com/in/armanhossenripon" target="_blank">
+                            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                        </a>
+                        <a class="contact-link" href="https://github.com/armanhossen-dev" target="_blank">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                        <a class="contact-link" href="https://www.instagram.com/armanhossenripon/" target="_blank">
+                            <i class="fa-brands fa-instagram"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                        <label class="form-label">Your Message</label>
+                        <textarea id="messageBox" placeholder="What's on your mind?" required></textarea>
+                        </div>
+                        <button class="btn-send" type="submit" id="sendBtn">
+                        <i class="fa-solid fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- footer  -->
+        <footer>
+        <p class="footer-copy">© 2025 <span>Arman Hossen Ripon</span> — All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/armanhossenripon" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/armanhossen-dev" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.facebook.com/i.am.ahrn" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/armanhossenripon/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@armanhossenripon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </footer>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>
