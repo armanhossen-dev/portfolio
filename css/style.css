@@ -8,7 +8,7 @@
   --shadow2: rgba(142, 242, 36, 0.28);
   --shadow3: rgba(142, 242, 36, 0.1);
   --accent: #8ef224;
-  --accent2: #5ab1ff;
+  --accent2: #000000;
   --text: #e8e8e8;
   --muted: #666;
   --font-display: 'Syne', sans-serif;
@@ -66,7 +66,7 @@ body:hover .cursor { opacity: 1; }
   font-family: var(--font-display);
   font-size: clamp(5rem, 18vw, 14rem);
   font-weight: 800;
-  color: transparent;
+  color: var(--accent);
   -webkit-text-stroke: 1px rgba(142,242,36,0.3);
   letter-spacing: -4px;
   line-height: 1;
@@ -94,7 +94,9 @@ body::before {
 header {
   position: fixed; top: 0; left: 0; width: 100%;
   padding: 1.2rem 3rem;
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
   z-index: 100;
   background: rgba(10, 10, 10, 0.45);
   backdrop-filter: blur(20px);
@@ -214,7 +216,7 @@ body.light-mode {
   --shadow2: rgba(0, 0, 0, 0.12);
   --shadow3: rgba(0, 0, 0, 0.06);
   --accent: #ffaa00;
-  --accent2: #2f80ff;
+  --accent2: #000000;
   --text: #111111;
   --muted: #6b7280;
   --font-display: 'Syne', sans-serif;
@@ -298,7 +300,7 @@ body.light-mode ::-webkit-scrollbar-thumb {
   position: absolute; inset: 0;
   background:
     radial-gradient(ellipse 80% 60% at 70% 30%, rgba(142,242,36,0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(90,177,255,0.03) 0%, transparent 50%);
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(163, 231, 85, 0.03) 0%, transparent 40%);
   z-index: 0;
 }
 
@@ -339,18 +341,20 @@ body.light-mode ::-webkit-scrollbar-thumb {
   margin-bottom: 1.5rem;
   display: block;
   opacity: 0;
-  animation: fadeUp 0.8s 2s forwards;
+  animation: fadeUp 0.8s 3s forwards;
 }
 
 .hero-name {
   font-family: var(--font-display);
   font-size: clamp(5rem, 15vw, 8rem);
+  align-items: center;
+  justify-content: center;
   font-weight: 800;
   line-height: 0.9;
   letter-spacing: -3px;
   margin-bottom: 2rem;
   opacity: 0;
-  animation: fadeUp 0.8s 2.1s forwards;
+  animation: fadeUp 0.8s 3.1s forwards;
 }
 
 .hero-name .outline {
@@ -365,7 +369,7 @@ body.light-mode ::-webkit-scrollbar-thumb {
   font-weight: 300;
   margin-bottom: 0;
   opacity: 0;
-  animation: fadeUp 0.8s 2.3s forwards;
+  animation: fadeUp 0.8s 3.3s forwards;
 }
 
 .hero-role .typed-text {
@@ -380,14 +384,14 @@ body.light-mode ::-webkit-scrollbar-thumb {
   justify-content: center;
   z-index: 1;
   opacity: 0;
-  animation: fadeUp 0.8s 2.5s forwards;
+  animation: fadeUp 0.8s 3.5s forwards;
 }
 
 /* PHOTO WRAP */
 .hero-photo-wrap {
   position: relative;
-  width: 340px;
-  height: 340px;
+  width: 440px;
+  height: 440px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -395,8 +399,8 @@ body.light-mode ::-webkit-scrollbar-thumb {
 
 /* PHOTO CIRCLE */
 .hero-photo-circle {
-  width: 240px;
-  height: 240px;
+  width: 340px;
+  height: 340px;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid var(--card-border);
@@ -467,13 +471,13 @@ body.light-mode ::-webkit-scrollbar-thumb {
   from {
     transform:
       rotate(calc(var(--i) * 45deg))
-      translateX(165px)
+      translateX(220px)
       rotate(calc(var(--i) * -45deg));
   }
   to {
     transform:
       rotate(calc(var(--i) * 45deg))
-      translateX(165px)
+      translateX(220px)
       rotate(calc(var(--i) * -45deg - 360deg));
   }
 }
@@ -532,9 +536,9 @@ body.light-mode ::-webkit-scrollbar-thumb {
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
+@media (max-width: 1130px) {
   .hero {
-    padding: 0 1.5rem 2.5rem;
+    padding: 0 2rem 2.5rem;
   }
 
   .hero-content {
@@ -545,24 +549,33 @@ body.light-mode ::-webkit-scrollbar-thumb {
     gap: 2.5rem;
   }
 
+  .hero-left .hero-name{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+  }
+
   .hero-right {
+    padding-top: 3.5rem;
     order: -1; /* photo above name on mobile */
   }
 
   .hero-photo-wrap {
-    width: 240px;
-    height: 240px;
+    width: 350px;
+    height: 350px;
   }
 
   .hero-photo-circle {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
   }
 
   .orbit-item {
     transform:
       rotate(calc(var(--i) * 45deg))
-      translateX(115px)
+      translateX(165px)
       rotate(calc(var(--i) * -45deg));
     animation: counterSpinSm 14s linear infinite;
   }
@@ -571,13 +584,13 @@ body.light-mode ::-webkit-scrollbar-thumb {
     from {
       transform:
         rotate(calc(var(--i) * 45deg))
-        translateX(115px)
+        translateX(175px)
         rotate(calc(var(--i) * -45deg));
     }
     to {
       transform:
         rotate(calc(var(--i) * 45deg))
-        translateX(115px)
+        translateX(175px)
         rotate(calc(var(--i) * -45deg - 360deg));
     }
   }
