@@ -11,6 +11,7 @@
   --text: #e8e8e8;
   --muted: #666;
   --font-display: 'Syne', sans-serif;
+  --font-tag: 'Red Rose', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 }
 
@@ -750,7 +751,7 @@ section {
 }
 .project-card:hover::before { opacity: 1; }
 .project-num {
-  font-family: var(--font-display);
+  font-family: var(--font-tag);
   font-size: 0.7rem;
   color: var(--accent);
   letter-spacing: 2px;
