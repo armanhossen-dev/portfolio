@@ -1641,6 +1641,16 @@ footer {
   .bento-d, .bento-e, .bento-f { grid-column: span 1; }
 }
 
+@media (max-width: 768px) {
+  .cursor,
+  .cursor-ring {
+    display: none !important;
+  }
+
+  body { cursor: auto; }
+
+  a, button, [role="button"] { cursor: pointer; }
+}
 
 /* Touch devices — hide custom cursor  */
 @media (hover: none) and (pointer: coarse) {
@@ -1665,7 +1675,9 @@ footer {
 
   .project-card,
   .resume-card,
-  .stat-card {
+  .stat-card,
+  .bento-card,
+  .skill-pill {
     transform: none !important; /* remove hover lifts on touch */
     transition: border-color 0.3s;
   }
