@@ -62,7 +62,7 @@ body:hover .cursor { opacity: 1; }
 }
 .preloader.hidden { opacity: 0; visibility: hidden; }
 .preloader-count {
-  font-family: var(--font-display);
+  font-family: var(--font-tag);
   font-size: clamp(5rem, 18vw, 14rem);
   font-weight: 800;
   color: var(--accent);
