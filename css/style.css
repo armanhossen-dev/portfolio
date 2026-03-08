@@ -1419,34 +1419,6 @@ footer {
   }
 }
 
-/* Touch devices — hide custom cursor  */
-@media (hover: none) and (pointer: coarse) {
-  .cursor,
-  .cursor-ring {
-    display: none !important;
-  }
-
-  body { cursor: auto; }
-
-  a, button, [role="button"] { cursor: pointer; }
-
-  /* Slightly larger tap targets for touch */
-  .hero-links a {
-    width: 44px;
-    height: 44px;
-  }
-
-  nav a {
-    padding: 0.5rem 0;
-  }
-
-  .project-card,
-  .resume-card,
-  .stat-card {
-    transform: none !important; /* remove hover lifts on touch */
-    transition: border-color 0.3s;
-  }
-}
 /* SKILLS & TECH STACK */
 
 .skills { background: var(--bg); }
@@ -1667,4 +1639,34 @@ footer {
   .bento-grid { grid-template-columns: 1fr; }
   .bento-a, .bento-b, .bento-c,
   .bento-d, .bento-e, .bento-f { grid-column: span 1; }
+}
+
+
+/* Touch devices — hide custom cursor  */
+@media (hover: none) and (pointer: coarse) {
+  .cursor,
+  .cursor-ring {
+    display: none !important;
+  }
+
+  body { cursor: auto; }
+
+  a, button, [role="button"] { cursor: pointer; }
+
+  /* Slightly larger tap targets for touch */
+  .hero-links a {
+    width: 44px;
+    height: 44px;
+  }
+
+  nav a {
+    padding: 0.5rem 0;
+  }
+
+  .project-card,
+  .resume-card,
+  .stat-card {
+    transform: none !important; /* remove hover lifts on touch */
+    transition: border-color 0.3s;
+  }
 }
