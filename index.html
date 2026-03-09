@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arman Hossen Ripon — CSE student & web developer portfolio.">
     <title>Arman Hosse Ripon - Developer</title>
     <link rel="icon" type="image/png" href="img/ahrn-photo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,9 +28,11 @@
         <header id="header">
         <a href="./" class="logo">AHRN<span>.</span></a>
         <nav>
+            <!-- About → Skills → Projects → Education → Resume → Contact  -->
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#edu">Education</a>
             <a href="#resume">Resume</a>
             <a href="#interests">Interests</a>
             <a href="#contact">Contact</a>
@@ -53,6 +56,7 @@
             <a class="mn-link" href="#about">About</a>
             <a class="mn-link" href="#skills">Skills</a>
             <a class="mn-link" href="#projects">Projects</a>
+            <a class="mn-link" href="#edu">Education</a>
             <a class="mn-link" href="#resume">Resume</a>
             <a class="mn-link" href="#interests">Interests</a>
             <a class="mn-link" href="#contact">Contact</a>
@@ -178,7 +182,7 @@
         <section class="skills reveal" id="skills">
         <div class="skills-inner">
             <span class="section-tag">What I Work With</span>
-            <h2 class="section-title">Skills &amp; Stack</h2>
+            <h2 class="section-title">Skills &amp; Stack.</h2>
 
             <div class="skills-table">
                 <div class="skills-row">
@@ -287,6 +291,149 @@
             </div>
         </section>
 
+        <!-- education -->
+        <section class="edu-section" id="edu">
+        <div class="edu-inner">
+
+            <span class="section-tag reveal">Academic Journey</span>
+            <h2 class="section-title reveal">Education.</h2>
+
+            <div class="edu-timeline">
+                <!-- ── Card 1: Daffodil International University ── -->
+                <div class="edu-card ongoing reveal"
+                    onclick="window.open('https://daffodilvarsity.edu.bd/','_blank')"
+                    role="link"
+                    tabindex="0"
+                    onkeydown="if(event.key==='Enter')window.open('https://daffodilvarsity.edu.bd/','_blank')">
+
+                    <div class="edu-card-inner">
+
+                    <div class="edu-text">
+                        <div class="edu-meta">
+                        <span class="edu-year">2024 – Present</span>
+                        <span class="edu-dot-sep"></span>
+                        <span class="edu-type">Undergraduate</span>
+                        </div>
+                        <a class="edu-institution"
+                        href="https://daffodilvarsity.edu.bd/"
+                        target="_blank" rel="noopener"
+                        onclick="event.stopPropagation()">
+                        Daffodil International University
+                        </a>
+                        <p class="edu-degree">
+                        Bachelor of Science in Computer Science &amp; Engineering (CSE)
+                        </p>
+                        <div class="edu-badges">
+                        <span class="edu-badge edu-badge-live">Ongoing</span>
+                        </div>
+                    </div>
+
+                    <div class="edu-photo">
+                        <img
+                        src="img/diu.png"
+                        alt="Daffodil International University campus"
+                        draggable="false"
+                        oncontextmenu="return false"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        />
+                        <div class="edu-photo-fallback"><i class="fa-solid fa-graduation-cap"></i></div>
+                    </div>
+
+                    </div>
+                </div><!-- /edu-card -->
+
+                <!-- ── Card 2: Govt. Shah Sultan College ── -->
+                <div class="edu-card reveal"
+                    onclick="window.open('https://govssc.edu.bd/','_blank')"
+                    role="link"
+                    tabindex="0"
+                    onkeydown="if(event.key==='Enter')window.open('https://govssc.edu.bd/','_blank')">
+
+                    <div class="edu-card-inner">
+
+                    <div class="edu-text">
+                        <div class="edu-meta">
+                        <span class="edu-year">2021 – 2023</span>
+                        <span class="edu-dot-sep"></span>
+                        <span class="edu-type">Higher Secondary</span>
+                        </div>
+                        <a class="edu-institution"
+                        href="https://govssc.edu.bd/"
+                        target="_blank" rel="noopener"
+                        onclick="event.stopPropagation()">
+                        Govt. Shah Sultan College
+                        </a>
+                        <p class="edu-degree">Higher Secondary Certificate (HSC)</p>
+                        <div class="edu-badges">
+                        <span class="edu-badge edu-badge-done">Completed</span>
+                        <span class="edu-badge edu-badge-gpa">
+                            <i class="fa-solid fa-star"></i> GPA 5.00 / 5.00
+                        </span>
+                        </div>
+                    </div>
+
+                    <div class="edu-photo">
+                        <img
+                        src="img/gssc.png"
+                        alt="Govt. Shah Sultan College"
+                        draggable="false"
+                        oncontextmenu="return false"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        />
+                        <div class="edu-photo-fallback"><i class="fa-solid fa-book-open"></i></div>
+                    </div>
+
+                    </div>
+                </div><!-- /edu-card -->
+
+                <!-- ── Card 3: Bogra Zilla School ── -->
+                <div class="edu-card reveal"
+                    onclick="window.open('https://en.wikipedia.org/wiki/Bogra_Zilla_School','_blank')"
+                    role="link"
+                    tabindex="0"
+                    onkeydown="if(event.key==='Enter')window.open('https://en.wikipedia.org/wiki/Bogra_Zilla_School','_blank')">
+
+                    <div class="edu-card-inner">
+
+                    <div class="edu-text">
+                        <div class="edu-meta">
+                        <span class="edu-year">2015 – 2021</span>
+                        <span class="edu-dot-sep"></span>
+                        <span class="edu-type">Secondary</span>
+                        </div>
+                        <a class="edu-institution"
+                        href="https://en.wikipedia.org/wiki/Bogra_Zilla_School"
+                        target="_blank" rel="noopener"
+                        onclick="event.stopPropagation()">
+                        Bogra Zilla School
+                        </a>
+                        <p class="edu-degree">Secondary School Certificate (SSC)</p>
+                        <div class="edu-badges">
+                        <span class="edu-badge edu-badge-done">Completed</span>
+                        <span class="edu-badge edu-badge-gpa">
+                            <i class="fa-solid fa-star"></i> GPA 5.00 / 5.00
+                        </span>
+                        </div>
+                    </div>
+
+                    <div class="edu-photo">
+                        <img
+                        src="img/bzs.png"
+                        alt="Bogra Zilla School"
+                        draggable="false"
+                        oncontextmenu="return false"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        />
+                        <div class="edu-photo-fallback"><i class="fa-solid fa-school"></i></div>
+                    </div>
+
+                    </div>
+                </div><!-- /edu-card -->
+            </div><!-- /edu-timeline -->
+
+        </div><!-- /edu-inner -->
+        </section>
+
         <!-- resume  -->
         <section class="resume-section" id="resume">
             <div class="resume-inner">
@@ -313,7 +460,7 @@
         <section class="interests reveal" id="interests">
         <div class="interests-inner">
             <span class="section-tag">Beyond the Code</span>
-            <h2 class="section-title">Interests &amp; Fun Facts</h2>
+            <h2 class="section-title">Interests &amp; Fun Facts.</h2>
 
             <div class="bento-grid">
                 <!-- A: SaaS obsession -->
@@ -328,7 +475,7 @@
                     <span class="bento-label">For fun</span>
                     <span class="bento-emoji">🚀</span>
                     <div class="bento-value">Sci-Fi Fan</div>
-                    <p class="bento-sub">From Asimov to Interstellar — sci-fi shapes how I think about tech, the future, and what's actually possible.</p>
+                    <p class="bento-sub">Inspired by Iron Man and Blade Runner, I approach technology with a future-focused mindset.</p>
                 </div>
 
                 <!-- C: Problem solver -->
@@ -358,7 +505,7 @@
                 <!-- F: Quote -->
                 <div class="bento-card bento-f bento-quote reveal">
                     <div class="bento-quote-text">Do not wait until you have the right skills to start your project. Your project will teach you the skills.</div>
-                    <div class="bento-quote-author">— Sahil Gaba &nbsp;·&nbsp; a quote Arman lives by</div>
+                    <div class="bento-quote-author">— Sahil Gaba &nbsp;·&nbsp; a principle that drives <b>Arman</b></div>
                 </div>                
 
             </div>
