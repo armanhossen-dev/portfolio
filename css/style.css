@@ -3,16 +3,17 @@
   --surface: #111111;
   --glass: rgba(255,255,255,0.04);
   --border: rgba(255,255,255,0.08);
-  --card-border: rgba(142,242,36,0.3);
+  --card-border: rgba(142, 242, 36, 0.536);
   --shadow1: rgba(142, 242, 36, 0.09);
   --shadow2: rgba(142, 242, 36, 0.28);
   --shadow3: rgba(142, 242, 36, 0.1);
   --accent: #8ef224;
   --text: #e8e8e8;
-  --muted: #666;
+  --muted: #aaa;
   --font-display: 'Syne', sans-serif;
   --font-tag: 'Red Rose', sans-serif;
   --font-body: 'DM Sans', sans-serif;
+  --font-int: 'Russo One', sans-serif;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -62,12 +63,11 @@ body:hover .cursor { opacity: 1; }
 }
 .preloader.hidden { opacity: 0; visibility: hidden; }
 .preloader-count {
-  font-family: var(--font-tag);
-  font-size: clamp(5rem, 18vw, 14rem);
-  font-weight: 800;
-  color: var(--accent);
-  -webkit-text-stroke: 1px var(--card-border);
-  letter-spacing: -4px;
+  font-family: var(--font-int);
+  font-size: clamp(7rem, 30vw, 20rem);
+  font-weight: 900;
+  color: var(--accent);  
+  letter-spacing: -2px;
   line-height: 1;
 }
 .preloader-line {
@@ -1446,7 +1446,8 @@ footer {
 }
 
 .skills-category {
-  font-size: 0.68rem;
+  font-size: 0.70rem;
+  font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
@@ -1553,7 +1554,7 @@ footer {
 .bento-value {
   font-family: var(--font-display);
   font-size: clamp(1.3rem, 2.8vw, 2rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.5px;
   color: var(--text);
@@ -1591,8 +1592,8 @@ footer {
 .bento-quote {
   background: linear-gradient(
     135deg,
-    rgba(142,242,36,0.05) 0%,
-    var(--glass) 100%
+     var(--shadow3) 1%,
+     var(--glass) 100%
   );
   border-color: var(--card-border);
 }
