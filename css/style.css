@@ -8,8 +8,8 @@
   --shadow2: rgba(142, 242, 36, 0.28);
   --shadow3: rgba(142, 242, 36, 0.1);
   --accent: #8ef224;
-  --text: #e8e8e8;
-  --muted: #aaa;
+  --text: #eaeaea;
+  --muted: #b0b0b0;
   --font-display: 'Syne', sans-serif;
   --font-tag: 'Red Rose', sans-serif;
   --font-body: 'DM Sans', sans-serif;
@@ -25,31 +25,7 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   overflow-x: hidden;
-  cursor: none;
 }
-
-/* cursor */
-.cursor {
-  width: 10px; height: 10px;
-  background: var(--accent);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%,-50%);
-  transition: transform 0.1s, width 0.3s, height 0.3s, opacity 0.3s;
-}
-.cursor-ring {
-  width: 36px; height: 36px;
-  border: 1px solid var(--accent); 
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%,-50%);
-  transition: transform 0.15s ease, width 0.3s, height 0.3s;
-}
-body:hover .cursor { opacity: 1; }
 
 /* PRELOADER */
 .preloader {
@@ -147,7 +123,6 @@ nav a:hover::after { width: 100%; }
   border: none;
   color: var(--text);
   font-size: 1.5rem;
-  cursor: none;
   z-index: 9999;
   position: relative;
 }
@@ -187,11 +162,11 @@ nav a:hover::after { width: 100%; }
   transition: color 0.3s, transform 0.3s;
   cursor: pointer;
 
-  /* ── make each link a full-width tappable row ── */
+  /* ── now each link will take full-width, tappable row ── */
   display: block;
   width: 100%;
   text-align: center;
-  padding: 0.6rem 2rem;         /* tall tap target */
+  padding: 0.6rem 2rem;         
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;   /* kills 300ms tap delay on iOS */
 }
@@ -572,7 +547,10 @@ section {
   backdrop-filter: blur(10px);
   transition: border-color 0.3s, transform 0.3s;
 }
-.stat-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.stat-card:hover { 
+  border-color: var(--accent); 
+  transform: translateY(-4px);
+}
 .stat-num {
   font-family: var(--font-display);
   /* font-size: 2.5rem; */
@@ -610,6 +588,7 @@ section {
 .projects-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
 }
+
 .project-card {
   background: var(--glass);
   border: 1px solid var(--border);
@@ -619,21 +598,21 @@ section {
   overflow: hidden;
   text-decoration: none;
   display: block;
-  transition: border-color 0.3s, transform 0.3s;
-  /* group: true; */
+  transition: transform 0.3s ease, border-color 0.3s ease;  
 }
 .project-card::before {
   content: '';
   position: absolute; inset: 0;
   background: radial-gradient(circle at 50% 0%, var(--shadow1), transparent 60%);
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 .project-card:hover { 
   border-color: var(--accent); 
-  transform: translateY(-6px); 
+  transform: translateY(-4px);
 }
 .project-card:hover::before { opacity: 1; }
+
 .project-num {
   font-family: var(--font-tag);
   font-size: 0.7rem;
@@ -1130,7 +1109,7 @@ textarea::placeholder { color: var(--muted); }
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  cursor: none;
+  cursor: default;
   transition: all 0.3s;
   display: flex; align-items: center; justify-content: center; gap: 0.5rem;
 }
@@ -1184,7 +1163,7 @@ footer {
 /* SCROLLBAR */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
 
 /* 
    RESPONSIVE DESIGN — PORTFOLIO
@@ -1870,88 +1849,10 @@ footer {
   .bento-d, .bento-e, .bento-f { grid-column: span 1; }
 }
 
-/* Hide custom cursor on touch/mobile devices */
-@media (hover: none) and (pointer: coarse) {
-
-  /* ── Hide custom cursor ── */
-  .cursor,
-  .cursor-ring {
-    display: none !important;
-  }
-
-  body { cursor: auto; }
-
-  a, button, [role="button"], [role="link"] { cursor: pointer; }
-
-  /* ── Tap targets ── */
-  .hero-links a {
-    width: 44px;
-    height: 44px;
-  }
-
-  nav a {
-    padding: 0.5rem 0;
-  }
-
-  .mobile-nav a {
-    padding: 0.8rem 2rem; /* taller tap rows on touch */
-  }
-
-  /* ── Remove hover lifts (no hover on touch) ── */
-  .project-card,
-  .resume-card,
-  .stat-card,
-  .bento-card,
-  .skill-pill,
-  .edu-card-inner,
-  .hero-photo-circle {
-    transform: none !important;
-    transition: border-color 0.3s;
-  }
-
-  /* ── Remove hover glows and overlays ── */
-  .project-card::before,
-  .bento-card::before,
-  .edu-card-inner::before {
-    display: none;
-  }
-
-  /* ── Keep edu timeline dot always visible ── */
-  .edu-card::before {
-    border-color: var(--accent);
-  }
-
-  /* ── Keep edu bottom bar always slightly visible ── */
-  .edu-card-inner::after {
-    width: 36px;
-  }
-
-  /* ── Reset btn-send cursor ── */
-  .btn-send {
-    cursor: pointer;
-  }
-
-  /* ── Reset theme toggle cursor ── */
-  .theme-toggle {
-    cursor: pointer;
-  }
-
-  /* ── Reset menu btn cursor ── */
-  .menu-btn {
-    cursor: pointer;
-  }
-
-  /* ── Reset edu-card cursor ── */
-  .edu-card {
-    cursor: pointer;
-  }
-}
-
 /* toggle */
 .theme-toggle {
   background: none;
   border: none;
-  cursor: none;
   padding: 0;
   display: flex;
   align-items: center;
@@ -2022,7 +1923,7 @@ body.light-mode {
   --shadow3: rgba(0, 0, 0, 0.06);
   --accent: #ffaa00;
    --text: #111111;
-  --muted: #6b7280;
+  --muted: #555;
 }
 
 body.light-mode header {
@@ -2051,5 +1952,5 @@ body.light-mode .preloader {
 }
 
 body.light-mode ::-webkit-scrollbar-thumb {
-  background: var(--card-border);
+  background: var(--accent);
 }
