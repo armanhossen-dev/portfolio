@@ -7,7 +7,7 @@
   --shadow1: rgba(142, 242, 36, 0.09);
   --shadow2: rgba(142, 242, 36, 0.28);
   --shadow3: rgba(142, 242, 36, 0.1);
-  --accent: #8ef224;
+  --accent: #85eb18;
   --text: #eaeaea;
   --muted: #b0b0b0;
   --font-display: 'Syne', sans-serif;
@@ -131,6 +131,7 @@ nav a:hover::after { width: 100%; }
   .menu-btn {
     display: block;
     position: relative;
+    margin-left: 12%;
     z-index: 9999;
   }
 }
@@ -251,12 +252,12 @@ nav a:hover::after { width: 100%; }
 
 .hero-name .outline {
   color: transparent;
-  letter-spacing: -4px;
+  letter-spacing: -6px;
   -webkit-text-stroke: 1px rgba(255,255,255,0.2);
 }
 
 .hero-role {
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-size: clamp(2rem, 3.5vw, 1.9rem);
   color: var(--muted);
   font-weight: 300;
   margin-bottom: 0;
@@ -266,7 +267,7 @@ nav a:hover::after { width: 100%; }
 
 .hero-role .typed-text {
   color: var(--accent);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 /* RIGHT */
@@ -1342,8 +1343,8 @@ footer {
   }
 
   .hero-label {
-    font-size: 0.65rem;
-    letter-spacing: 3px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
   }
 
   .hero-role {
