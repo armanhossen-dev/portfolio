@@ -123,115 +123,115 @@ themeToggle.addEventListener('click', () => {
   } catch(e) {}
 });
 
-// ── GitHub Contributions Grid (Real Data) ──
+// my github contributions
 (function () {
-  const USERNAME = 'armanhossen-dev';
-  const MONTHS   = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const today    = new Date();
-
-  // Tooltip
-  const tooltip = document.createElement('div');
-  tooltip.className = 'contrib-tooltip';
-  document.body.appendChild(tooltip);
-
+  const USERNAME  = 'armanhossen-dev';
+  const MONTHS    = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const today     = new Date();
   const grid      = document.getElementById('weeksGrid');
   const monthsRow = document.getElementById('monthsRow');
   const countEl   = document.getElementById('totalCount');
 
-  // Show loading state
-  countEl.textContent = '...';
+  // ── Tooltip
+  const tip = document.createElement('div');
+  tip.className = 'contrib-tooltip';
+  document.body.appendChild(tip);
 
-  fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`) // this updates 1h late
-    // fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`, { headers: { 'cache-control': 'no-cache' } // this loads instant!
-    // })
-    .then(res => {
-      if (!res.ok) throw new Error('API error');
-      return res.json();
-    })
-    .then(data => {
-      const contributions = data.contributions; // [{date, count, level}]
-      const total = data.total.lastYear ?? Object.values(data.total).reduce((a, b) => a + b, 0);
+  // ── Build grid skeleton instantly (level 0 cells)
+  const start = new Date(today);
+  start.setDate(start.getDate() - 364 - start.getDay());
 
-      // Build a date → {count, level} map for fast lookup
-      const map = {};
-      contributions.forEach(d => { map[d.date] = { count: d.count, level: d.level }; });
+  const allCells = []; // store refs to update later
+  let lastMonth  = -1;
 
-      // Build 53-week grid aligned to Sunday
-      const start = new Date(today);
-      start.setDate(start.getDate() - 364 - start.getDay());
+  for (let w = 0; w < 53; w++) {
+    const wDate = new Date(start);
+    wDate.setDate(start.getDate() + w * 7);
+    const m     = wDate.getMonth();
+    const mSpan = document.createElement('span');
+    if (m !== lastMonth) { mSpan.textContent = MONTHS[m]; lastMonth = m; }
+    monthsRow.appendChild(mSpan);
 
-      let lastMonth = -1;
+    const col = document.createElement('div');
+    col.className = 'contrib-week';
 
-      for (let w = 0; w < 53; w++) {
-        const col = document.createElement('div');
-        col.className = 'contrib-week';
+    for (let d = 0; d < 7; d++) {
+      const date   = new Date(start);
+      date.setDate(start.getDate() + w * 7 + d);
+      const future = date > today;
 
-        // Month label for this week's first day
-        const wDate = new Date(start);
-        wDate.setDate(start.getDate() + w * 7);
-        const m = wDate.getMonth();
-        const mSpan = document.createElement('span');
-        if (m !== lastMonth) { mSpan.textContent = MONTHS[m]; lastMonth = m; }
-        monthsRow.appendChild(mSpan);
+      const cell        = document.createElement('div');
+      cell.className    = 'contrib-cell skeleton';
+      cell.dataset.level = '0';
+      if (future) cell.style.opacity = '0.15';
 
-        for (let d = 0; d < 7; d++) {
-          const date = new Date(start);
-          date.setDate(start.getDate() + w * 7 + d);
-          const isFuture = date > today;
+      cell.addEventListener('mousemove', e => {
+        const count = parseInt(cell.dataset.count || '0');
+        const ds    = date.toLocaleDateString('en-US', {
+          weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'
+        });
+        tip.style.display = 'block';
+        tip.style.left    = (e.clientX + 14) + 'px';
+        tip.style.top     = (e.clientY - 38) + 'px';
+        tip.innerHTML     = count
+          ? `<strong>${count} contribution${count > 1 ? 's' : ''}</strong> on ${ds}`
+          : `No contributions on ${ds}`;
+      });
+      cell.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
 
-          // Format date as YYYY-MM-DD to match API keys
-          const key = date.toISOString().split('T')[0];
-          const info = map[key] || { count: 0, level: 0 };
+      col.appendChild(cell);
+      allCells.push({ cell, date, future });
+    }
+    grid.appendChild(col);
+  }
 
-          const cell = document.createElement('div');
-          cell.className = 'contrib-cell';
-          cell.dataset.level = isFuture ? '0' : info.level;
-          if (isFuture) cell.style.opacity = '0.2';
+  // ── Check localStorage cache
+  const CACHE_KEY  = 'gh_contrib_data';
+  const CACHE_TIME = 'gh_contrib_time';
+  const ONE_HOUR   = 60 * 60 * 1000;
+  const cached     = localStorage.getItem(CACHE_KEY);
+  const cachedAt   = localStorage.getItem(CACHE_TIME);
+  const isStale    = !cachedAt || (Date.now() - Number(cachedAt)) > ONE_HOUR;
 
-          // Staggered fade-in
-          cell.style.opacity = isFuture ? '0.2' : '0';
-          setTimeout(() => {
-            cell.style.transition = 'opacity 0.4s ease';
-            cell.style.opacity = isFuture ? '0.2' : '1';
-          }, w * 8 + d * 4);
+  if (cached && !isStale) {
+    renderData(JSON.parse(cached));
+  } else {
+    fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`)
+      .then(r => r.json())
+      .then(data => {
+        localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+        localStorage.setItem(CACHE_TIME, Date.now());
+        renderData(data);
+      })
+      .catch(() => { countEl.textContent = '—'; });
+  }
 
-          // Tooltip
-          cell.addEventListener('mousemove', e => {
-            const ds = date.toLocaleDateString('en-US', {
-              weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'
-            });
-            tooltip.style.display = 'block';
-            tooltip.style.left = (e.clientX + 14) + 'px';
-            tooltip.style.top  = (e.clientY - 38) + 'px';
-            tooltip.innerHTML   = info.count
-              ? `<strong>${info.count} contribution${info.count > 1 ? 's' : ''}</strong> on ${ds}`
-              : `No contributions on ${ds}`;
-          });
-          cell.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+  function renderData(data) {
+    const map   = {};
+    data.contributions.forEach(d => { map[d.date] = { count: d.count, level: d.level }; });
+    const total = data.total.lastYear ?? Object.values(data.total).reduce((a, b) => a + b, 0);
 
-          col.appendChild(cell);
-        }
-        grid.appendChild(col);
-      }
+    allCells.forEach(({ cell, date, future }) => {
+      if (future) return;
+      const key  = date.toISOString().split('T')[0];
+      const info = map[key] || { count: 0, level: 0 };
 
-      // Animated counter
-      let c = 0;
-      const step = Math.ceil(total / 60);
-      const t = setInterval(() => {
-        c = Math.min(c + step, total);
-        countEl.textContent = c.toLocaleString();
-        if (c >= total) clearInterval(t);
-      }, 20);
-    })
-    .catch(() => {
-      // Fallback: show a graceful error in the count area
-      countEl.textContent = '—';
-      const msg = document.createElement('p');
-      msg.style.cssText = 'font-size:0.8rem;color:var(--muted);margin-top:1rem;';
-      msg.textContent = 'Could not load contribution data. Check your connection.';
-      grid.parentElement.parentElement.appendChild(msg);
+      cell.dataset.level = info.level;
+      cell.dataset.count = info.count;
+      cell.classList.remove('skeleton');
     });
+
+    // Animate counter
+    let c = 0;
+    const step = Math.ceil(total / 60);
+    const t = setInterval(() => {
+      c = Math.min(c + step, total);
+      countEl.textContent = c.toLocaleString();
+      if (c >= total) clearInterval(t);
+    }, 20);
+  }
 })();
+
 
 // ── Vertical Sticky Social Bar + Logo ──
 (function () {
