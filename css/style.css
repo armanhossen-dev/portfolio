@@ -2176,6 +2176,19 @@ footer {
 }
 .contrib-cell:hover { transform: scale(1.35); filter: brightness(1.4); z-index: 5; }
 
+/* Contribution skeleton shimmer */
+.contrib-cell.skeleton {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  animation: contrib-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes contrib-shimmer {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.9; }
+}
+
+
 .contrib-cell[data-level="0"] { background: var(--glass); border: 1px solid var(--border); }
 .contrib-cell[data-level="1"] { background: var(--b1); }
 .contrib-cell[data-level="2"] { background: var(--b2); }
