@@ -141,10 +141,9 @@ themeToggle.addEventListener('click', () => {
   // Show loading state
   countEl.textContent = '...';
 
-  // fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`)  this updates 1h late
-    fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`, {
-    headers: { 'cache-control': 'no-cache' }
-    })
+  fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`) // this updates 1h late
+    // fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`, { headers: { 'cache-control': 'no-cache' } // this loads instant!
+    // })
     .then(res => {
       if (!res.ok) throw new Error('API error');
       return res.json();
