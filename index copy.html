@@ -9,9 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Red+Rose:wght@300..700&family=Russo+One&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bitcount+Prop+Single:wght@100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
         <!-- preloader  -->
@@ -20,11 +24,11 @@
             <div class="preloader-line" id="preloadLine"></div>
         </div>
 
-        <!-- header -->
+        <!-- header 
         <header id="header">
         <a href="./" class="logo">AHRN<span>.</span></a>
         <nav>
-            <!-- About → Skills → Projects → Education → Resume → Contact  -->
+            //About → Skills → Projects → Education → Resume → Contact  
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
@@ -46,6 +50,81 @@
                 <i class="fa-solid fa-bars" id="menuIcon"></i>
             </button>
         </header>
+    -->
+        <!-- header -->
+    
+        <header id="header">
+        <!--          <a href="./" class="logo">AHRN<span>.</span></a> -->
+        <span style="color: transparent;">.</span>
+
+        <nav class="floating-nav" id="floatingNav">
+            <a href="#home" class="fnav-item active" data-tip="Home">
+            <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="#about" class="fnav-item" data-tip="About">
+            <i class="fa-solid fa-user"></i>
+            </a>
+            <a href="#skills" class="fnav-item" data-tip="Skills">
+            <i class="fa-solid fa-code"></i>
+            </a>
+            <a href="#projects"  class="fnav-item" data-tip="Projects">
+            <i class="fa-solid fa-desktop"></i>
+            </a>
+            <a href="#edu" class="fnav-item" data-tip="Education">
+            <i class="fa-solid fa-graduation-cap"></i>
+            </a>
+            <a href="#resume" class="fnav-item" data-tip="Resume">
+            <i class="fa-solid fa-file-lines"></i>
+            </a>
+            <a href="#interests" class="fnav-item" data-tip="Interests">
+            <i class="fa-solid fa-star"></i>
+            </a>
+            <a href="#contact"  class="fnav-item" data-tip="Contact">
+            <i class="fa-solid fa-envelope"></i>
+            </a>
+        </nav>
+
+        <div class="header-right">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle Light/Dark Mode">
+            <span class="toggle-track">
+                <span class="toggle-icon sun"><i class="fa-solid fa-sun"></i></span>
+                <span class="toggle-icon moon"><i class="fa-solid fa-moon"></i></span>
+                <span class="toggle-thumb"></span>
+            </span>
+            </button>
+            <button class="menu-btn" id="menuBtn" aria-label="Menu">
+            <i class="fa-solid fa-bars" id="menuIcon"></i>
+            </button>
+        </div>
+
+        </header>
+
+
+        <!-- Vertical Sticky Social Bar -->
+        <div class="sticky-social" id="stickySocial">
+
+            <a href="./" class="sticky-logo">AHRN<span>.</span></a>
+            <div class="sticky-social-divider"></div>
+
+            <a href="https://www.linkedin.com/in/armanhossenripon" target="_blank" title="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/armanhossen-dev" target="_blank" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://sites.google.com/view/armanhossenripon" target="_blank" title="Google Site">
+                <i class="fa-brands fa-google"></i>
+            </a>
+            <a href="https://www.youtube.com/@armanhossenripon" target="_blank" title="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://www.instagram.com/armanhossenripon/" target="_blank" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/i.am.ahrn" target="_blank" title="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+        </div>
 
         <!-- mobile nav  -->
         <div class="mobile-nav" id="mobileNav">
@@ -59,51 +138,92 @@
         </div>
 
         <!-- hero  -->
-        <section class="hero" id="home">
+       <section class="hero" id="home">
         <div class="hero-bg"></div>
         <div class="hero-grid"></div>
 
+        <a href="./" class="hero-logo">AHRN<span>.</span></a>
+
         <div class="hero-content">
+
             <div class="hero-left">
-                <span class="hero-label">Portfolio — 2026</span>
-                <h1 class="hero-name">
-                Arman<br>
+            <div class="hero-meta reveal-hero">
+                <span class="hero-meta-line"></span>
+                <span class="hero-meta-text">CSE Student — Daffodil International University</span>
+                <span class="hero-meta-dot"></span>
+                <span class="hero-meta-text">Bangladesh</span>
+            </div>
+
+            <h1 class="hero-name">
+                <span class="hero-name-top">Arman</span>
+                <span class="hero-name-bottom">
                 <span class="outline">Hossen</span>
-                </h1>
-                <p class="hero-role">I am a <span class="typed-text" id="typed"></span></p>
+                <span class="hero-name-accent">Ripon</span>
+                </span>
+            </h1>
+
+            <div class="hero-role-wrap">
+                <span class="hero-role-label">I build</span>
+                <p class="hero-role">
+                <span class="typed-text" id="typed"></span>
+                </p>
             </div>
+
+            <div class="hero-cta">
+                <a href="#projects" class="btn-primary">
+                View Work <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn-ghost">
+                Let's Talk
+                </a>
+            </div>
+            </div>
+
             <div class="hero-right">
-                <div class="hero-photo-wrap">
-                    <div class="orbit-ring">
-                        <div class="orbit-item" style="--i:0"><i class="fa-brands fa-html5"></i></div>
-                        <div class="orbit-item" style="--i:1"><i class="fa-brands fa-css3-alt"></i></div>
-                        <div class="orbit-item" style="--i:2"><i class="fa-brands fa-js"></i></div>
-                        <div class="orbit-item" style="--i:3"><i class="fa-brands fa-react"></i></div>
-                        <div class="orbit-item" style="--i:4"><i class="fa-brands fa-python"></i></div>
-                        <div class="orbit-item" style="--i:5"><i class="fa-brands fa-github"></i></div>
-                        <div class="orbit-item" style="--i:6"><i class="fa-brands fa-node-js"></i></div>
-                        <div class="orbit-item" style="--i:7"><i class="fa-solid fa-database"></i></div>
-                    </div>
-                    <div class="hero-photo-circle">
-                        <img src="img/ahrn-photo.png" draggable="false" oncontextmenu="return false"  alt="Arman Hossen Ripon" />
-                    </div>
+            <div class="hero-photo-wrap">
+                <div class="orbit-ring">
+                <div class="orbit-item" style="--i:0"><i class="fa-brands fa-html5"></i></div>
+                <div class="orbit-item" style="--i:1"><i class="fa-brands fa-css3-alt"></i></div>
+                <div class="orbit-item" style="--i:2"><i class="fa-brands fa-js"></i></div>
+                <div class="orbit-item" style="--i:3"><i class="fa-brands fa-java"></i></div>
+                <div class="orbit-item" style="--i:4"><i class="fa-brands fa-python"></i></div>
+                <div class="orbit-item" style="--i:5"><i class="fa-brands fa-github"></i></div>
+                <div class="orbit-item" style="--i:6"><i class="fa-brands fa-tailwind-css"></i></div>
+                <div class="orbit-item" style="--i:7"><i class="fa-solid fa-database"></i></div>
+                </div>
+                <div class="hero-photo-circle">
+                <img src="img/ahrn-photo.png" draggable="false"
+                    oncontextmenu="return false" alt="Arman Hossen Ripon" />
+                </div>
+
+                <!-- Floating stat cards -->
+                <div class="hero-stat-card card-left">
+                <div class="hero-stat-num">6+</div>
+                <div class="hero-stat-label">Projects</div>
+                </div>
+                <div class="hero-stat-card card-right">
+                <div class="hero-stat-num">3+</div>
+                <div class="hero-stat-label">Years Coding.</div>
                 </div>
             </div>
-        </div>        
-            <div class="hero-bottom">
-                <div class="hero-links">
-                    <a href="https://www.linkedin.com/in/armanhossenripon" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://github.com/armanhossen-dev" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://sites.google.com/view/armanhossenripon" target="_blank" title="Google Site"><i class="fa-brands fa-google"></i></a>
-                    <a href="https://www.youtube.com/@armanhossenripon" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/armanhossenripon/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/i.am.ahrn" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                </div>
-                <div class="scroll-hint">
-                    <div class="scroll-line"></div>
-                    Scroll
-                </div>
             </div>
+
+        </div>
+
+        <div class="hero-bottom">
+            <div class="hero-links">
+            <a href="https://www.linkedin.com/in/armanhossenripon" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/armanhossen-dev" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://sites.google.com/view/armanhossenripon" target="_blank" title="Google Site"><i class="fa-brands fa-google"></i></a>
+            <a href="https://www.youtube.com/@armanhossenripon" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/armanhossenripon/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/i.am.ahrn" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+            <div class="scroll-hint">
+            <div class="scroll-line"></div>
+            Scroll
+            </div>
+        </div>
         </section>
 
         <!-- about myself bro  -->
@@ -111,7 +231,7 @@
             <div class="about-inner">
                 <div class="about-text">
                     <span class="section-tag reveal">Who I Am</span>
-                    <h2 class="section-title reveal">About Me.</h2>
+                    <h2 class="section-title reveal">About Me<span style="color: var(--accent);">.</span></h2>
                     <p class="reveal">A passionate <b>Computer Science & Engineering</b> student at <b>Daffodil International University (DIU)</b>, currently based in Savar, Dhaka, Bangladesh — originally from <b>Bogura</b>.</p>
                     <p class="reveal">I have a strong foundation in programming, problem-solving, and web development. My journey began at <b>Bogra Zilla School</b> and continued at <b>Govt. Shah Sultan College</b>, where a love for mathematics sparked my path into computer science.</p>
                 </div>
@@ -178,7 +298,7 @@
         <section class="skills reveal" id="skills">
         <div class="skills-inner">
             <span class="section-tag">What I Work With</span>
-            <h2 class="section-title">Skills &amp; Stack.</h2>
+            <h2 class="section-title">Skills &amp; Stack<span style="color: var(--accent);">.</span></h2>
 
             <div class="skills-table reveal">
                 <div class="skills-row">
@@ -241,11 +361,53 @@
         </div>
         </section>
 
+        <!-- GitHub Contributions -->
+        <section class="github-contrib" id="github">
+        <div class="contrib-inner">
+            <span class="section-tag reveal">GitHub Activity</span>
+            <h2 class="section-title reveal">Contributions<span style="color: var(--accent);">.</span></h2>
+
+            <div class="contrib-card reveal">
+            <div class="contrib-header">
+                <div>
+                <div class="contrib-label">Activity</div>
+                <div class="contrib-title">GitHub Contributions</div>
+                </div>
+                <div class="contrib-count">
+                <div class="contrib-dot-line"></div>
+                <span><strong id="totalCount">0</strong> contributions in the last year</span>
+                </div>
+            </div>
+
+            <div class="contrib-grid-wrap">
+                <div class="contrib-months" id="monthsRow"></div>
+                <div class="contrib-area">
+                <div class="contrib-days">
+                    <span></span><span>Mon</span><span></span>
+                    <span>Wed</span><span></span><span>Fri</span><span></span>
+                </div>
+                <div class="contrib-weeks" id="weeksGrid"></div>
+                </div>
+            </div>
+            <div class="contrib-legend">
+                <span>Less</span>
+                <div class="leg-cell" style="background:var(--glass);border:1px solid var(--border);"></div>
+                <div class="leg-cell" style="background:var(--b1);"></div>
+                <div class="leg-cell" style="background:var(--b2);"></div>
+                <div class="leg-cell" style="background:var(--b3);"></div>
+                <div class="leg-cell" style="background:var(--accent);"></div>
+                <span>More</span>
+            </div>
+
+            </div>
+        </div>
+        </section>
+
         <!-- projects  -->
         <section class="projects" id="projects">
             <div class="projects-inner">
                 <span class="section-tag reveal">What I've Built</span>
-                <h2 class="section-title reveal">Projects.</h2>
+                <h2 class="section-title reveal">Projects<span style="color: var(--accent);">.</span></h2>
                 <div class="projects-grid reveal" >
                     <a class="project-card" href="https://fitnessbot.vercel.app/" target="_blank">
                         <div class="project-num">01 — AI</div>
@@ -292,7 +454,7 @@
         <div class="edu-inner">
 
             <span class="section-tag reveal">Academic Journey</span>
-            <h2 class="section-title reveal">Education.</h2>
+            <h2 class="section-title reveal">Education<span style="color: var(--accent);">.</span></h2>
 
             <div class="edu-timeline">
                 <!-- ── Card 1: Daffodil International University ── -->
@@ -434,7 +596,7 @@
         <section class="resume-section" id="resume">
             <div class="resume-inner">
                 <span class="section-tag reveal">My CV</span>
-                <h2 class="section-title reveal">Resume.</h2>
+                <h2 class="section-title reveal">Resume<span style="color: var(--accent);">.</span></h2>
                 <div class="resume-cards">
                     <a class="resume-card reveal" href="https://ahrn-resume.vercel.app/" target="_blank">
                         <div class="resume-card-icon"><i class="fa-solid fa-globe"></i></div>
@@ -456,7 +618,7 @@
         <section class="interests reveal" id="interests">
         <div class="interests-inner">
             <span class="section-tag">Beyond the Code</span>
-            <h2 class="section-title">Interests &amp; Fun Facts.</h2>
+            <h2 class="section-title">Interests &amp; Fun Facts<span style="color: var(--accent);">.</span></h2>
 
             <div class="bento-grid">
                 <!-- A: SaaS obsession -->
@@ -513,32 +675,72 @@
             <div class="contact-inner">
                 <div class="contact-left">
                     <span class="section-tag reveal">Get In Touch</span>
-                    <h2 class="section-title reveal">Let's Talk.</h2>
+                    
+                    <h2 class="section-title1 reveal">LET'S WORK</h2>
+                    <h2 class="section-title2 reveal">TOGETHER<span style="color: var(--accent);">!</span></h2>
+                    
                     <p class="reveal">Got a project, opportunity, or just want to say hi? I'm always open to interesting conversations and collaborations.</p>
+
+                     <!-- Contact Links -->
                     <div class="contact-links reveal">
                         <a class="contact-link" href="https://www.linkedin.com/in/armanhossenripon" target="_blank">
-                            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                        <i class="fa-brands fa-linkedin-in"></i> LinkedIn
                         </a>
                         <a class="contact-link" href="https://github.com/armanhossen-dev" target="_blank">
-                            <i class="fa-brands fa-github"></i> GitHub
+                        <i class="fa-brands fa-github"></i> GitHub
                         </a>
                         <a class="contact-link" href="https://www.instagram.com/armanhossenripon/" target="_blank">
-                            <i class="fa-brands fa-instagram"></i> Instagram
+                        <i class="fa-brands fa-instagram"></i> Instagram
                         </a>
                     </div>
+
                 </div>
 
                 <div class="reveal">
                     <form class="contact-form" id="contactForm">
+
+                        <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" id="nameBox" placeholder="Arman Hossen" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Your Email</label>
+                            <input type="email" id="emailBox" placeholder="hello@example.com" required />
+                        </div>
+                        </div>
+
+                        <div class="form-group">
+                        <label class="form-label">Budget</label>
+                        <div class="budget-options">
+                            <input type="radio" name="budget" id="b1" value="<$500" />
+                            <label class="budget-pill" for="b1">Under $500</label>
+
+                            <input type="radio" name="budget" id="b2" value="$500–$1k" />
+                            <label class="budget-pill" for="b2">$500 – $1k</label>
+
+                            <input type="radio" name="budget" id="b3" value="$1k–$5k" />
+                            <label class="budget-pill" for="b3">$1k – $5k</label>
+
+                            <input type="radio" name="budget" id="b4" value="$5k+" />
+                            <label class="budget-pill" for="b4">$5k+</label>
+
+                            <input type="radio" name="budget" id="b5" value="Let's talk" checked />
+                            <label class="budget-pill" for="b5">Let's talk</label>
+                        </div>
+                        </div>
+
                         <div class="form-group">
                         <label class="form-label">Your Message</label>
                         <textarea id="messageBox" placeholder="What's on your mind?" required></textarea>
                         </div>
+
                         <button class="btn-send" type="submit" id="sendBtn">
                         <i class="fa-solid fa-paper-plane"></i> Send Message
                         </button>
+
                     </form>
-                </div>
+                    </div>
             </div>
         </section>
 
