@@ -130,7 +130,10 @@ themeToggle.addEventListener('click', () => {
   // Show loading state
   countEl.textContent = '...';
 
-  fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`)
+  // fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`) 
+    fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`, {
+    headers: { 'cache-control': 'no-cache' }
+    })
     .then(res => {
       if (!res.ok) throw new Error('API error');
       return res.json();
