@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Red+Rose:wght@300..700&family=Russo+One&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bitcount+Prop+Single:wght@100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -580,32 +583,58 @@
             <div class="contact-inner">
                 <div class="contact-left">
                     <span class="section-tag reveal">Get In Touch</span>
-                    <h2 class="section-title reveal">Let's Talk.</h2>
+                    
+                    <h2 class="section-title1 reveal">LET'S WORK</h2>
+                    <h2 class="section-title2 reveal">TOGETHER</h2>
+                    
                     <p class="reveal">Got a project, opportunity, or just want to say hi? I'm always open to interesting conversations and collaborations.</p>
-                    <div class="contact-links reveal">
-                        <a class="contact-link" href="https://www.linkedin.com/in/armanhossenripon" target="_blank">
-                            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
-                        </a>
-                        <a class="contact-link" href="https://github.com/armanhossen-dev" target="_blank">
-                            <i class="fa-brands fa-github"></i> GitHub
-                        </a>
-                        <a class="contact-link" href="https://www.instagram.com/armanhossenripon/" target="_blank">
-                            <i class="fa-brands fa-instagram"></i> Instagram
-                        </a>
-                    </div>
                 </div>
 
                 <div class="reveal">
                     <form class="contact-form" id="contactForm">
+
+                        <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" id="nameBox" placeholder="Arman Hossen" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Your Email</label>
+                            <input type="email" id="emailBox" placeholder="hello@example.com" required />
+                        </div>
+                        </div>
+
+                        <div class="form-group">
+                        <label class="form-label">Budget</label>
+                        <div class="budget-options">
+                            <input type="radio" name="budget" id="b1" value="<$500" />
+                            <label class="budget-pill" for="b1">Under $500</label>
+
+                            <input type="radio" name="budget" id="b2" value="$500–$1k" />
+                            <label class="budget-pill" for="b2">$500 – $1k</label>
+
+                            <input type="radio" name="budget" id="b3" value="$1k–$5k" />
+                            <label class="budget-pill" for="b3">$1k – $5k</label>
+
+                            <input type="radio" name="budget" id="b4" value="$5k+" />
+                            <label class="budget-pill" for="b4">$5k+</label>
+
+                            <input type="radio" name="budget" id="b5" value="Let's talk" checked />
+                            <label class="budget-pill" for="b5">Let's talk</label>
+                        </div>
+                        </div>
+
                         <div class="form-group">
                         <label class="form-label">Your Message</label>
                         <textarea id="messageBox" placeholder="What's on your mind?" required></textarea>
                         </div>
+
                         <button class="btn-send" type="submit" id="sendBtn">
                         <i class="fa-solid fa-paper-plane"></i> Send Message
                         </button>
+
                     </form>
-                </div>
+                    </div>
             </div>
         </section>
 

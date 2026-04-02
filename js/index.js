@@ -63,25 +63,35 @@ document.querySelectorAll('.edu-card.reveal').forEach((card, i) => {
 });
 reveals.forEach(r => io.observe(r));
 
+
+
 // contact form
-const scriptURL = "https://script.google.com/macros/s/AKfycbwbB_-7VS_lS9tehAI20iYgdDxGKHE0NSfIZS6FPFXvUjpjPD84qavwJnKAF_5wFTGd/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbwsVDeZ4jFWNNT5RjSc-jnYhjRLX8-rQ3tA2VJrxOvx-Sqf4kQCAXkElENjVq60-FD0Qg/exec";
+
 const form    = document.getElementById('contactForm');
 const sendBtn = document.getElementById('sendBtn');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
+
+  const name    = document.getElementById('nameBox').value.trim();
+  const email   = document.getElementById('emailBox').value.trim();
+  const budget  = document.querySelector('input[name="budget"]:checked')?.value || 'Not specified';
   const message = document.getElementById('messageBox').value.trim();
-  if (!message) return;
+
+  if (!name || !email || !message) return;
 
   sendBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
-  sendBtn.disabled = true;
+  sendBtn.disabled  = true;
 
   const fd = new FormData();
+  fd.append('name',    name);
+  fd.append('email',   email);
+  fd.append('budget',  budget);
   fd.append('message', message);
 
   try {
     await fetch(scriptURL, { method: 'POST', body: fd, mode: 'no-cors' });
-    // no-cors = opaque response, can't read it — just assume success if no throw
     sendBtn.innerHTML = '<i class="fa-solid fa-check"></i> Sent!';
     form.reset();
   } catch {
@@ -93,6 +103,7 @@ form.addEventListener('submit', async (e) => {
     sendBtn.disabled  = false;
   }, 2000);
 });
+
 
 // theme toggle
 const themeToggle = document.getElementById('themeToggle');
@@ -226,16 +237,18 @@ themeToggle.addEventListener('click', () => {
 
 // ── Vertical Sticky Social Bar ──
 (function () {
-  const bar     = document.getElementById('stickySocial');
-  const about   = document.getElementById('about');
+  const bar       = document.getElementById('stickySocial');
+  const about     = document.getElementById('about');
   const interests = document.getElementById('interests');
+  const footer    = document.querySelector('footer');
 
   window.addEventListener('scroll', () => {
     const scrollY      = window.scrollY;
     const aboutTop     = about.offsetTop - 100;
     const interestsEnd = interests.offsetTop + interests.offsetHeight;
+    const footerTop    = footer.offsetTop - 100;
 
-    if (scrollY >= aboutTop && scrollY <= interestsEnd) {
+    if (scrollY >= aboutTop && scrollY <= interestsEnd && scrollY < footerTop) {
       bar.classList.add('visible');
     } else {
       bar.classList.remove('visible');
