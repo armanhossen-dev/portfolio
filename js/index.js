@@ -234,8 +234,7 @@ themeToggle.addEventListener('click', () => {
     });
 })();
 
-
-// ── Vertical Sticky Social Bar ──
+// ── Vertical Sticky Social Bar + Logo ──
 (function () {
   const bar       = document.getElementById('stickySocial');
   const about     = document.getElementById('about');
@@ -254,4 +253,52 @@ themeToggle.addEventListener('click', () => {
       bar.classList.remove('visible');
     }
   });
+})();
+
+// ── Floating Nav Tooltip ──
+(function () {
+  const tip   = document.createElement('div');
+  tip.className = 'fnav-tooltip';
+  document.body.appendChild(tip);
+
+  document.querySelectorAll('.fnav-item').forEach(item => {
+    item.addEventListener('mouseenter', e => {
+      const label = item.getAttribute('data-tip');
+      if (!label) return;
+      tip.textContent = label;
+      tip.classList.add('show');
+
+      const rect = item.getBoundingClientRect();
+      tip.style.left = (rect.left + rect.width / 2 - tip.offsetWidth / 2) + 'px';
+      tip.style.top  = (rect.bottom + 10) + 'px';
+    });
+
+    item.addEventListener('mouseleave', () => {
+      tip.classList.remove('show');
+    });
+  });
+})();
+
+(function () {
+  const items    = document.querySelectorAll('.fnav-item');
+  const sections = ['home','about','skills','github','projects','edu','resume','interests','contact'];
+
+  function updateActive() {
+    const scrollY = window.scrollY;
+    let current   = 'home';
+
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (scrollY >= el.offsetTop - 200) current = id;
+    });
+
+    items.forEach(item => {
+      const href = item.getAttribute('href').replace('#', '');
+      item.classList.toggle('active', href === current);
+    });Z
+  }
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive(); /* run once on load */
 })();
