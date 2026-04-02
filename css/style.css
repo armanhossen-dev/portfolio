@@ -500,6 +500,66 @@ nav a:hover::after { width: 100%; }
   }
 }
 
+
+/* ── Vertical Sticky Social Bar ── */
+.sticky-social {
+  position: fixed;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(-50%) translateX(-20px);
+}
+
+.sticky-social.visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(-50%) translateX(0);
+}
+
+.sticky-social a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-decoration: none;
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.sticky-social a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+.sticky-social-line {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, var(--border), transparent);
+  margin-top: 0.25rem;
+}
+
+/* Hide on smaller screens where it would overlap content */
+@media (max-width: 1280px) {
+  .sticky-social { display: none; }
+}
+
+
 /* SECTION COMMONS */
 section {
   padding: 7rem 3rem;

@@ -222,3 +222,23 @@ themeToggle.addEventListener('click', () => {
       grid.parentElement.parentElement.appendChild(msg);
     });
 })();
+
+
+// ── Vertical Sticky Social Bar ──
+(function () {
+  const bar     = document.getElementById('stickySocial');
+  const about   = document.getElementById('about');
+  const interests = document.getElementById('interests');
+
+  window.addEventListener('scroll', () => {
+    const scrollY      = window.scrollY;
+    const aboutTop     = about.offsetTop - 100;
+    const interestsEnd = interests.offsetTop + interests.offsetHeight;
+
+    if (scrollY >= aboutTop && scrollY <= interestsEnd) {
+      bar.classList.add('visible');
+    } else {
+      bar.classList.remove('visible');
+    }
+  });
+})();
