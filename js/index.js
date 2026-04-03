@@ -104,24 +104,29 @@ form.addEventListener('submit', async (e) => {
   }, 2000);
 });
 
-
-// theme toggle
+// Theme toggle
 const themeToggle = document.getElementById('themeToggle');
 
-// safely load saved theme on page start
+// Load saved theme on page start
 try {
-  if (localStorage.getItem('theme') === 'light') {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
     document.body.classList.add('light-mode');
+    themeToggle.checked = true;
+  } else {
+    document.body.classList.remove('light-mode');
+    themeToggle.checked = false;
   }
 } catch(e) {}
 
-// toggle on click
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('light-mode');
+// Toggle on change
+themeToggle.addEventListener('change', () => {
+  document.body.classList.toggle('light-mode', themeToggle.checked);
   try {
-    localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+    localStorage.setItem('theme', themeToggle.checked ? 'light' : 'dark');
   } catch(e) {}
 });
+
 
 // my github contributions
 (function () {
