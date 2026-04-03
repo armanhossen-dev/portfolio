@@ -1511,7 +1511,7 @@ body.light-mode textarea {
 footer {
   background: var(--surface);
   border-top: 1px solid var(--border);
-  padding: 2rem 3rem;
+  padding: 2rem 6vw;
   display: flex; align-items: center; justify-content: space-between;
 }
 .footer-copy { font-size: 0.78rem; color: var(--muted); letter-spacing: 1px; }
