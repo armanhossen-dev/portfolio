@@ -13,7 +13,7 @@
   --muted: #b0b0b0;
   --font-display: 'Syne', sans-serif;
   /* --font-display2: 'Be Vietnam Pro', sans-serif; */
-  --font-display2: "Bebas Neue", sans-serif;
+  --font-display2: 'Bebas Neue', sans-serif;
   --font-tag: 'Red Rose', sans-serif;
   --font-body: 'DM Sans', sans-serif;
   --font-int: 'Russo One', sans-serif;
@@ -75,7 +75,7 @@ header {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
-  padding: 0.9rem 2.5rem;
+  padding: 0.9rem 6vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -98,6 +98,7 @@ header {
   gap: 1rem;
   opacity: 0;
   margin-top: 2rem;
+  margin-bottom: 2rem;
   animation: fadeUp 0.6s 3.4s forwards;
 }
 
@@ -113,15 +114,16 @@ header {
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.85rem 1.8rem;
-  border-radius: 15px;
+  padding: 0.70rem 1.6rem;
+  border-radius: 10px;
   transition: all 0.3s;
+  border: 1px solid var(--border);
 }
+
 .btn-primary:hover {
   background: var(--accent_tag);
-  transform: translateY(-3px);
-  gap: 0.8rem;
 }
+
 .btn-primary i { font-size: 0.7rem; }
 
 .btn-ghost {
@@ -136,15 +138,14 @@ header {
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.85rem 1.8rem;
-  border-radius: 15px;
+  padding: 0.80rem 1.6rem;
+  border-radius: 10px;
   border: 1px solid var(--border);
   transition: all 0.3s;
 }
 .btn-ghost:hover {
   border-color: var(--accent);
   color: var(--accent);
-  transform: translateY(-3px);
 }
 
 @media (max-width: 1080px) {
@@ -152,7 +153,11 @@ header {
 }
 
 @media (max-width: 480px) {
-    .hero-cta { flex-direction: column; width: 100%; }
+  .btn-ghost, .btn-primary{
+    padding: 0.60rem 1.4rem;
+    border-radius: 10px;
+  }
+  .hero-cta { flex-direction: column; width: 100%; }
 }
 
 /* group theme toggle + menu btn together on the right */
@@ -230,7 +235,6 @@ nav a:hover::after { width: 100%; }
   display: flex;
   align-items: center;
   gap: 2px;
-
   background: rgba(10, 10, 10, 0.344);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -394,7 +398,7 @@ body.light-mode .fnav-item::after {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0 3rem 3rem;
+  padding: 0 3rem 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -424,6 +428,7 @@ body.light-mode .fnav-item::after {
   align-items: center;
   flex: 1;
   z-index: 1;
+  padding: 0 4vw;
   padding-top: 7rem;
   min-height: calc(100vh - 120px);
 }
@@ -449,9 +454,11 @@ body.light-mode .fnav-item::after {
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(5rem, 15vw, 8rem);
+  font-size: clamp(3rem, 3.5rem, 5rem);
+  /* clamp(min, preferred, max) */
   align-items: center;
   justify-content: center;
+  text-transform: uppercase;
   font-weight: 800;
   line-height: 0.9;
   letter-spacing: -3px;
@@ -461,9 +468,9 @@ body.light-mode .fnav-item::after {
 }
 
 .hero-name .outline {
-  color: transparent;
-  letter-spacing: -6px;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+  /* color: transparent; */
+  letter-spacing: -8px;
+  /* -webkit-text-stroke: 2px rgba(255, 255, 255, 0.853); */
 }
 
 .hero-role {
@@ -479,6 +486,7 @@ body.light-mode .fnav-item::after {
   color: var(--accent);
   font-weight: 700;
 }
+
 
 /* RIGHT */
 .hero-right {
@@ -595,6 +603,7 @@ body.light-mode .fnav-item::after {
   opacity: 0;
   animation: fadeUp 0.8s 2.8s forwards;
   padding-top: 2rem;
+  padding: 0 4vw;
 }
 
 .hero-links {
@@ -701,7 +710,7 @@ body.light-mode .fnav-item::after {
 
   .hero-bottom {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 1.5rem;
   }
 }
@@ -710,7 +719,7 @@ body.light-mode .fnav-item::after {
 .hero-logo {
   position: absolute;
   top: 1.8rem;
-  left: 2.5rem;
+  left: 6vw;
   z-index: 10;
   font-family: var(--font-display);
   font-size: 1.8rem;
@@ -1595,7 +1604,7 @@ footer {
   }
 
   .hero-name {
-    font-size: clamp(4rem, 12vw, 7rem);
+    font-size: clamp(3rem, 3.5rem, 5rem);
     letter-spacing: -2.5px;
   }
 
@@ -1649,7 +1658,7 @@ footer {
   }
 
   .hero-name {
-    font-size: clamp(3.5rem, 10vw, 6rem);
+    font-size: clamp(1.8rem, 2.5rem, 2.5rem);
     letter-spacing: -2px;
   }
 
@@ -1686,7 +1695,7 @@ footer {
 
   .hero-bottom {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
@@ -1783,8 +1792,8 @@ footer {
 
   .hero-bottom {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.2rem;
+    align-items: center;
+    gap: 2rem;
   }
 
   /* SECTION COMMONS */
