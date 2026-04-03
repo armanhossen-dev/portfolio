@@ -93,6 +93,17 @@ header {
   background: rgba(10,10,10,0.85);
 } */
 
+.no-select {
+  user-select: none;        /* Standard */
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Old Edge */
+}
+
+.no-click {
+  pointer-events: none;
+}
+
 .hero-cta {
   display: flex;
   align-items: center;
@@ -554,46 +565,6 @@ body.light-mode .fnav-item::after {
 @keyframes orbitSpin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
-}
-
-/* ORBIT ICONS */
-.orbit-item {
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  top: 50%;
-  left: 50%;
-  margin-top: -18px;
-  margin-left: -18px;
-  background: rgba(10, 10, 10, 0.92);
-  border: 1px solid var(--accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent);
-  font-size: 0.85rem;
-  transform:
-    rotate(calc(var(--i) * 45deg))
-    translateX(165px)
-    rotate(calc(var(--i) * -45deg));
-  will-change: transform;
-  animation: counterSpin 14s linear infinite;
-}
-
-@keyframes counterSpin {
-  from {
-    transform:
-      rotate(calc(var(--i) * 45deg))
-      translateX(220px)
-      rotate(calc(var(--i) * -45deg));
-  }
-  to {
-    transform:
-      rotate(calc(var(--i) * 45deg))
-      translateX(220px)
-      rotate(calc(var(--i) * -45deg - 360deg));
-  }
 }
 
 /* BOTTOM BAR */
@@ -2494,7 +2465,7 @@ body.light-mode .contrib-cell[data-level="4"] { background: var(--accent); }
   position: relative;
   display: inline-block;
   width: 4em;
-  height: 2em;
+  height: 2.2em;
   border-radius: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.369);
 }
