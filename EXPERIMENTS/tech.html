@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Technical Skills</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #1a1a1a;
+      --card-bg: #252525;
+      --card-border: #333;
+      --text-white: #ffffff;
+      --text-muted: #888;
+      --teal: #00c8c8;
+      --teal-dark: #007a7a;
+      --active-bg: linear-gradient(135deg, #0a4a4a 0%, #0d6666 100%);
+      --icon-bg: #2e2e2e;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-white);
+      font-family: 'Barlow', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 60px 30px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .heading {
+      margin-bottom: 40px;
+      line-height: 0.9;
+    }
+
+    .heading .line1 {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(64px, 14vw, 90px);
+      color: var(--text-white);
+      letter-spacing: -1px;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .heading .line2 {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(64px, 14vw, 90px);
+      color: #2e2e2e;
+      letter-spacing: -1px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 16px 18px;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.15s; }
+    .card:nth-child(3) { animation-delay: 0.2s; }
+    .card:nth-child(4) { animation-delay: 0.25s; }
+    .card:nth-child(5) { animation-delay: 0.3s; }
+    .card:nth-child(6) { animation-delay: 0.35s; }
+    .card:nth-child(7) { animation-delay: 0.4s; }
+    .card:nth-child(8) { animation-delay: 0.45s; }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: #555;
+    }
+
+    .card.active {
+      background: var(--active-bg);
+      border-color: var(--teal-dark);
+    }
+
+    .card.active .icon-wrap {
+      background: rgba(0, 200, 200, 0.2);
+      border-color: rgba(0, 200, 200, 0.3);
+    }
+
+    .card.active .skill-name {
+      color: var(--teal);
+    }
+
+    .icon-wrap {
+      width: 58px;
+      height: 58px;
+      min-width: 58px;
+      background: var(--icon-bg);
+      border: 1px solid #3a3a3a;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+
+    .icon-wrap svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .skill-info {}
+
+    .skill-name {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text-white);
+      line-height: 1.2;
+      transition: color 0.2s;
+    }
+
+    .skill-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      font-weight: 400;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="heading">
+    <span class="line1">TECHNICAL</span>
+    <span class="line2">SKILLS</span>
+  </div>
+
+  <div class="grid">
+
+    <!-- React JS -->
+    <div class="card" onclick="toggleActive(this)">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="2.5" fill="#888"/>
+          <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#888" stroke-width="1.4" fill="none"/>
+          <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#888" stroke-width="1.4" fill="none" transform="rotate(60 12 12)"/>
+          <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#888" stroke-width="1.4" fill="none" transform="rotate(120 12 12)"/>
+        </svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-name">React JS</div>
+        <div class="skill-desc">UI Library</div>
+      </div>
+    </div>
+
+    <!-- Figma -->
+    <div class="card" onclick="toggleActive(this)">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="2" width="6" height="6" rx="3" fill="#888"/>
+          <rect x="13" y="2" width="6" height="6" rx="3" fill="#888"/>
+          <rect x="5" y="10" width="6" height="6" rx="3" fill="#888"/>
+          <rect x="5" y="18" width="6" height="6" rx="3" fill="#888"/>
+          <circle cx="16" cy="13" r="3" fill="#888"/>
+        </svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-name">Figma</div>
+        <div class="skill-desc">Design Tool</div>
+      </div>
+    </div>
+
+    <!-- TailWind (active by default) -->
+    <div class="card active" onclick="toggleActive(this)">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 6C9.6 6 8.1 7.2 7.5 9.6C8.4 8.4 9.45 7.95 10.65 8.25C11.34 8.42 11.83 8.92 12.38 9.48C13.27 10.38 14.31 11.4 16.5 11.4C18.9 11.4 20.4 10.2 21 7.8C20.1 9 19.05 9.45 17.85 9.15C17.16 8.98 16.67 8.48 16.12 7.92C15.23 7.02 14.19 6 12 6ZM7.5 11.4C5.1 11.4 3.6 12.6 3 15C3.9 13.8 4.95 13.35 6.15 13.65C6.84 13.82 7.33 14.32 7.88 14.88C8.77 15.78 9.81 16.8 12 16.8C14.4 16.8 15.9 15.6 16.5 13.2C15.6 14.4 14.55 14.85 13.35 14.55C12.66 14.38 12.17 13.88 11.62 13.32C10.73 12.42 9.69 11.4 7.5 11.4Z" fill="#00c8c8"/>
+        </svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-name">TailWind</div>
+        <div class="skill-desc">Utility-First CSS</div>
+      </div>
+    </div>
+
+    <!-- Next JS -->
+    <div class="card" onclick="toggleActive(this)">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#888" stroke-width="1.4"/>
+          <path d="M9 8.5L16 15.5M16 8.5L9 15.5" stroke="#888" stroke-width="0.1"/>
+          <path d="M9.5 8h1.5v8H9.5V8zm5.5 4.5L9.5 8H11l5 6.5" fill="#888"/>
+        </svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-name">Next JS</div>
+        <div class="skill-desc">React Framework</div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <div class="card" onclick="toggleActive(this)">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#888" opacity="0.15"/>
+          <text x="4.5" y="18" font-family="monospace" font-weight="900" font-size="13" fill="#888">JS</text>
+        </svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-desc">Client-side scripting</div>
+      </div>
+    </div>
+
+    <!-- GitHub -->
+    <div class="card" onclick="toggleActive(this)">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" fill="#888" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.1-1.48-1.1-1.48-.9-.63.07-.62.07-.62 1 .07 1.52 1.05 1.52 1.05.89 1.55 2.33 1.1 2.9.84.09-.66.35-1.1.63-1.35-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05A9.35 9.35 0 0112 7.4c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.94-2.35 4.81-4.58 5.06.36.32.68.94.68 1.9v2.81c0 .27.18.59.69.49A10.24 10.24 0 0022 12.24C22 6.58 17.52 2 12 2z"/>
+        </svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-name">Github</div>
+        <div class="skill-desc">Code collaboration</div>
+      </div>
+    </div>
+
+    <!-- Bootstrap -->
+    <div class="card" onclick="toggleActive(this)">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="4" fill="#888" opacity="0.15"/>
+          <path d="M8 7h4.5c1.93 0 3 .9 3 2.5 0 1.1-.6 1.9-1.5 2.2 1.1.25 1.8 1.1 1.8 2.3C15.8 16 14.6 17 12.5 17H8V7zm2 4h2.3c.8 0 1.2-.4 1.2-1s-.4-1-1.2-1H10v2zm0 4h2.5c.9 0 1.4-.45 1.4-1.1s-.5-1.1-1.4-1.1H10v2.2z" fill="#888"/>
+        </svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-name">BootStrap</div>
+        <div class="skill-desc">CSS Framework</div>
+      </div>
+    </div>
+
+    <!-- CSS -->
+    <div class="card" onclick="toggleActive(this)">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="#888" opacity="0.15"/>
+          <text x="3.5" y="18" font-family="monospace" font-weight="900" font-size="11" fill="#888">CSS</text>
+        </svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-name">CSS</div>
+        <div class="skill-desc">Responsive styling</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function toggleActive(card) {
+    card.classList.toggle('active');
+    const icon = card.querySelector('svg');
+    if (card.classList.contains('active')) {
+      icon.querySelectorAll('[fill="#888"]').forEach(el => el.setAttribute('fill', '#00c8c8'));
+      icon.querySelectorAll('[stroke="#888"]').forEach(el => el.setAttribute('stroke', '#00c8c8'));
+    } else {
+      icon.querySelectorAll('[fill="#00c8c8"]').forEach(el => el.setAttribute('fill', '#888'));
+      icon.querySelectorAll('[stroke="#00c8c8"]').forEach(el => el.setAttribute('stroke', '#888'));
+    }
+  }
+
+  // Init active card icons
+  document.querySelectorAll('.card.active').forEach(card => {
+    const icon = card.querySelector('svg');
+    icon.querySelectorAll('[fill="#888"]').forEach(el => el.setAttribute('fill', '#00c8c8'));
+    icon.querySelectorAll('[stroke="#888"]').forEach(el => el.setAttribute('stroke', '#00c8c8'));
+  });
+</script>
+</body>
+</html>
+
+

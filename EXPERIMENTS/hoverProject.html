@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abraham Bankole</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    font-family: 'Arial Black', sans-serif;
+    cursor: none;
+    overflow-x: hidden;
+  }
+
+  .cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 40px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .nav-name {
+    color: white;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+  }
+
+  .nav-links a {
+    color: #888;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    font-family: 'Arial', sans-serif;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: white; }
+
+  .project-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 38px 40px;
+    border-bottom: 1px solid #1e1e1e;
+    position: relative;
+    cursor: none;
+    transition: background 0.3s ease;
+  }
+
+  .project-item:first-child {
+    background: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .project-item:first-child .project-number,
+  .project-item:first-child .project-tags,
+  .project-item:first-child .project-arrow { color: #333; }
+  .project-item:first-child .project-name { color: #111; }
+  .project-item:first-child .project-desc { display: block; }
+
+  .project-item:hover:not(:first-child) { background: #111; }
+
+  .project-left { display: flex; align-items: baseline; gap: 28px; }
+
+  .project-number {
+    color: #444;
+    font-size: 12px;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.05em;
+    min-width: 32px;
+  }
+
+  .project-name-wrap { display: flex; flex-direction: column; }
+
+  .project-name {
+    color: white;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .project-desc {
+    display: none;
+    font-size: 13px;
+    font-style: italic;
+    font-family: Georgia, serif;
+    color: #666;
+    margin-top: 8px;
+    font-weight: 400;
+  }
+
+  .project-right { display: flex; align-items: center; gap: 32px; }
+
+  .project-tags {
+    color: #555;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: 'Arial', sans-serif;
+    text-align: right;
+  }
+
+  .project-arrow {
+    color: #555;
+    font-size: 18px;
+    transition: transform 0.2s ease, color 0.2s;
+  }
+
+  .project-item:hover .project-arrow {
+    color: white;
+    transform: translate(3px, -3px);
+  }
+
+  /* Floating preview */
+  .preview-img {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0;
+    transform: translate(-50%, -60%) scale(0.88) rotate(-2deg);
+    transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.07);
+    width: 340px;
+    height: 220px;
+    will-change: transform, opacity;
+  }
+
+  .preview-img.visible {
+    opacity: 1;
+    transform: translate(-50%, -60%) scale(1) rotate(-1.5deg);
+  }
+
+  .preview-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+    display: block;
+  }
+
+  .preview-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.3);
+    font-family: 'Arial', sans-serif;
+  }
+
+  .placeholder-icon { font-size: 28px; opacity: 0.4; }
+  .preview-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.5; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<div class="preview-img" id="previewImg">
+  <img id="previewImgEl" src="" alt="" style="display:none">
+  <div class="preview-placeholder" id="previewPlaceholder">
+    <span class="placeholder-icon" id="phIcon">🔐</span>
+    <span id="phName">LOCKSMITH</span>
+    <span class="preview-label" id="phLabel">Python / Encryption</span>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-name">ABRAHAM BANKOLE</div>
+  <div class="nav-links">
+    <a href="#">ABOUT</a>
+    <a href="#">FEATURED WORK</a>
+    <a href="#">CONTACT</a>
+  </div>
+</nav>
+
+<div class="projects-list">
+
+  <!--
+    To add a real screenshot for any project:
+    1. Put the image file in the same folder as this HTML file
+    2. Set data-img="your-image-filename.png" on the project item
+    Example: data-img="locksmith.png"
+  -->
+
+  <div class="project-item"
+    data-icon="🔐"
+    data-label="Python / Encryption"
+    data-color="#1a1a2e"
+    data-img="locksmith.png">
+    <div class="project-left">
+      <span class="project-number">(01)</span>
+      <div class="project-name-wrap">
+        <span class="project-name">LOCKSMITH</span>
+        <span class="project-desc">Desktop credentials Manager with secure note implementation</span>
+      </div>
+    </div>
+    <div class="project-right">
+      <span class="project-tags">PYTHON / ENCRYPTION</span>
+      <span class="project-arrow">↗</span>
+    </div>
+  </div>
+
+  <div class="project-item"
+    data-icon="🏦"
+    data-label="Backend Architecture / Spring Boot"
+    data-color="#0d1b2a"
+    data-img="runestone.png">
+    <div class="project-left">
+      <span class="project-number">(02)</span>
+      <div class="project-name-wrap">
+        <span class="project-name">RUNESTONE BANK</span>
+      </div>
+    </div>
+    <div class="project-right">
+      <span class="project-tags">BACKEND ARCHITECTURE / SPRING BOOT</span>
+      <span class="project-arrow">↗</span>
+    </div>
+  </div>
+
+  <div class="project-item"
+    data-icon="📚"
+    data-label="Backend Architecture / Java"
+    data-color="#1a1209"
+    data-img="libris.png">
+    <div class="project-left">
+      <span class="project-number">(03)</span>
+      <div class="project-name-wrap">
+        <span class="project-name">LIBRIS</span>
+      </div>
+    </div>
+    <div class="project-right">
+      <span class="project-tags">BACKEND ARCHITECTURE / JAVA</span>
+      <span class="project-arrow">↗</span>
+    </div>
+  </div>
+
+  <div class="project-item"
+    data-icon="📦"
+    data-label="Linux System Utility / C# & Avalonia"
+    data-color="#0f1a10"
+    data-img="unpacker.png">
+    <div class="project-left">
+      <span class="project-number">(04)</span>
+      <div class="project-name-wrap">
+        <span class="project-name">UNPACKER</span>
+      </div>
+    </div>
+    <div class="project-right">
+      <span class="project-tags">LINUX SYSTEM UTILITY / C# & AVALONIA</span>
+      <span class="project-arrow">↗</span>
+    </div>
+  </div>
+
+  <div class="project-item"
+    data-icon="⚡"
+    data-label="Fullstack / React & Spring Boot"
+    data-color="#1f0d20"
+    data-img="stride.png">
+    <div class="project-left">
+      <span class="project-number">(05)</span>
+      <div class="project-name-wrap">
+        <span class="project-name">STRIDE</span>
+      </div>
+    </div>
+    <div class="project-right">
+      <span class="project-tags">FULLSTACK ARCHITECTURE / REACT & SPRING BOOT</span>
+      <span class="project-arrow">↗</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  const preview = document.getElementById('previewImg');
+  const previewImgEl = document.getElementById('previewImgEl');
+  const previewPlaceholder = document.getElementById('previewPlaceholder');
+  const phIcon = document.getElementById('phIcon');
+  const phName = document.getElementById('phName');
+  const phLabel = document.getElementById('phLabel');
+
+  let mouseX = 0, mouseY = 0;
+  let previewX = 0, previewY = 0;
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function animate() {
+    previewX = lerp(previewX, mouseX, 0.1);
+    previewY = lerp(previewY, mouseY, 0.1);
+    preview.style.left = previewX + 'px';
+    preview.style.top = previewY + 'px';
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+
+  function showPlaceholder(icon, name, label, color) {
+    previewImgEl.style.display = 'none';
+    previewPlaceholder.style.display = 'flex';
+    previewPlaceholder.style.background = color;
+    phIcon.textContent = icon;
+    phName.textContent = name;
+    phLabel.textContent = label;
+  }
+
+  document.querySelectorAll('.project-item').forEach(item => {
+    const imgSrc = item.dataset.img;
+    const icon = item.dataset.icon;
+    const label = item.dataset.label;
+    const color = item.dataset.color;
+    const name = item.querySelector('.project-name').textContent;
+
+    item.addEventListener('mouseenter', () => {
+      if (imgSrc) {
+        previewImgEl.onerror = () => showPlaceholder(icon, name, label, color);
+        previewImgEl.onload = () => {
+          previewImgEl.style.display = 'block';
+          previewPlaceholder.style.display = 'none';
+        };
+        previewImgEl.src = imgSrc;
+      } else {
+        showPlaceholder(icon, name, label, color);
+      }
+      preview.classList.add('visible');
+    });
+
+    item.addEventListener('mouseleave', () => {
+      preview.classList.remove('visible');
+    });
+  });
+</script>
+</body>
+</html>
