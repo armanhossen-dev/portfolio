@@ -2571,9 +2571,7 @@ body.light-mode .toggle-icon.sun  { opacity: 1; }
 
 /* light mode */
 body.light-mode {
-
-/* 
-    --bg: #04080f;
+    /* --bg: #04080f;
     --surface: #090f1a;
     --glass: rgba(255,255,255,0.04);
     --border: rgba(255,255,255,0.08);
@@ -2587,8 +2585,7 @@ body.light-mode {
     --muted: #7a9ab0;
     --b1: #021e49;
     --b2: #003380;
-    --b3: #0055cc;  
-*/
+    --b3: #0055cc;   */
 
     --bg: #ffffff;
     --surface: #f8faff;
@@ -2601,12 +2598,10 @@ body.light-mode {
     --accent: #2563eb;
     --accent_tag: #3b82f6;
     --text: #0a0f1e;
-    /* --muted: #64748b; */
     --muted: #2b333e;
     --b1: rgba(37, 100, 235, 0.410);
     --b2: rgba(37, 100, 235, 0.560);
     --b3: rgba(37,99,235,0.8);
-
 }
 
 body.light-mode header {
