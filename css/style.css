@@ -122,7 +122,7 @@ header {
   color: #0a0a0a;
   font-family: var(--font-body);
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
@@ -274,7 +274,7 @@ nav a:hover::after { width: 100%; }
 }
 
 .fnav-item i{
-  margin-left: 3px;
+  margin-left: 2px;
 }
 
 .fnav-item:hover {
@@ -497,7 +497,7 @@ body.light-mode .fnav-item::after {
 
 .hero-role .typed-text {
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 
@@ -829,6 +829,7 @@ section {
   margin-bottom: 1rem;
 }
 .section-title2 {
+  color: #5554587c;
   font-family: var(--font-display2);
   text-transform: uppercase;
   font-size: clamp(3rem, 6vw, 4.5rem);
@@ -836,7 +837,6 @@ section {
   letter-spacing: 2px;
   line-height: 1;
   margin-bottom: 1rem;
-  color: #55545845;
 }
 
 /* ABOUT */
