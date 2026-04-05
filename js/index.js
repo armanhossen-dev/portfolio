@@ -136,6 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'cnt-bc':  110,
     'cnt-ac':  0,
     'cnt-lc':  0,
+    'cnt-cc':  0,
+    'cnt-th':  48,
   };
 
   function easeOutExpo(t) {

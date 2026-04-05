@@ -2081,9 +2081,9 @@ footer {
 .github-contrib {
   background: var(--surface);
 }
+
 .contrib-inner {
   max-width: 1200px;
-  height: 70vh;
   margin: 0 auto;
 }
 
@@ -2093,6 +2093,7 @@ footer {
   border-radius: 16px;
   padding: 28px 32px;
   margin-top: 1rem;
+  margin-bottom: 8rem;
   position: relative;
   overflow: hidden;
   transition: border-color 0.3s, transform 0.3s;
@@ -2713,14 +2714,17 @@ body.light-mode ::-webkit-scrollbar-thumb {
 
 /* ── Problem Solving ── */
 .ps-section { background: var(--bg);}
-.ps-inner   { max-width: 1200px; height: 85vh; margin: 0 auto; }
+.ps-inner   { 
+  max-width: 1200px;  
+  margin: 0 auto;
+}
 
 .ps-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 1px;
   margin-top: 3rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   background: var(--glass);
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -2752,7 +2756,7 @@ body.light-mode ::-webkit-scrollbar-thumb {
 .ps-card.bc::after { background: #4caf50; }
 .ps-card.ac::after { background: #a67cff; }
 .ps-card.lc::after { background: #f5a623; }
-.ps-card.cc::after { background: #ffcb7c; }
+.ps-card.cc::after { background: #d17539; }
 .ps-card.th::after { background: #237ef5; }
 
 /* +NUM — big hero number */
@@ -2772,12 +2776,12 @@ body.light-mode ::-webkit-scrollbar-thumb {
   line-height: 1;
 }
 
-.cf .ps-plus { color: #1f8dd6; }
-.bc .ps-plus { color: #4caf50; }
-.ac .ps-plus { color: #a67cff; }
-.lc .ps-plus { color: #f5a623; }
-.cc .ps-plus { color: #f7c12e; }
-.th .ps-plus { color: #0090e3; }
+.cf .ps-plus { color: #1484c4; }
+.bc .ps-plus { color: #ac3ce0; }
+.ac .ps-plus { color: #7e7d7d; }
+.lc .ps-plus { color: #ffa217; }
+.cc .ps-plus { color: #d17539; }
+.th .ps-plus { color: #0093e8; }
 
 .ps-count {
   font-family: var(--font-display2, sans-serif);
@@ -2787,17 +2791,17 @@ body.light-mode ::-webkit-scrollbar-thumb {
   font-variant-numeric: tabular-nums;
 }
 
-.cf .ps-count { color: #1f8dd6; }
-.bc .ps-count { color: #4caf50; }
-.ac .ps-count { color: #a67cff; }
-.lc .ps-count { color: #f5a623; }
-.cc .ps-count { color: #f7c12e; }
-.th .ps-count { color: #0090e3; }
+.cf .ps-count { color: #1484c4; }
+.bc .ps-count { color: #ac3ce0; }
+.ac .ps-count { color: #7e7d7d; }
+.lc .ps-count { color: #ffa217; }
+.cc .ps-count { color: #d17539; }
+.th .ps-count { color: #0093e8; }
 
 /* PROBLEMS SOLVED label */
 .ps-solved-label {
   font-family: var(--font-tag, monospace);
-  font-size: .6rem;
+  font-size: .64rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
@@ -2828,12 +2832,12 @@ body.light-mode ::-webkit-scrollbar-thumb {
   border: 1px solid;
 }
 
-.cf .ps-logo-badge { background: rgba(31,141,214,0.10); color: #1f8dd6; border-color: rgba(31,141,214,0.22); }
-.bc .ps-logo-badge { background: rgba(76,175,80,0.10);  color: #4caf50; border-color: rgba(76,175,80,0.22);  }
-.ac .ps-logo-badge { background: rgba(166,124,255,0.10);color: #a67cff; border-color: rgba(166,124,255,0.22); }
-.lc .ps-logo-badge { background: rgba(245,166,35,0.10); color: #f5a623; border-color: rgba(245,166,35,0.22); }
-.cc .ps-logo-badge { background: rgba(245, 196, 35, 0.1); color: #f5b623; border-color: rgba(83, 56, 11, 0.22); }
-.th .ps-logo-badge { background: rgba(35, 144, 245, 0.1); color: #23a1f5; border-color: rgba(35, 214, 245, 0.22); }
+.cf .ps-logo-badge { background: rgba(20, 130, 194, 0.1); color: #1484c4; border-color: rgba(20, 130, 194, 0.22); }
+.bc .ps-logo-badge { background: rgba(172, 60, 224, 0.1);  color: #ac3ce0; border-color: rgba(172, 60, 224, 0.22); }
+.ac .ps-logo-badge { background: rgba(126, 125, 125, 0.1);color: #7e7d7d; border-color: rgba(126, 125, 125, 0.22); }
+.lc .ps-logo-badge { background: rgba(255, 163, 26, 0.1); color: #ffa217; border-color: rgba(245, 166, 35, 0.22)}
+.cc .ps-logo-badge { background: rgba(84, 48, 24, 0.1); color: #d17539; border-color: rgba(255, 145, 72, 0.22); }
+.th .ps-logo-badge { background: rgba(0, 147, 232, 0.1); color: #0093e8; border-color: rgba(0, 147, 232, 0.22); }
 
 /* ── Total Bar ── */
 .ps-total-bar {
@@ -2845,6 +2849,7 @@ body.light-mode ::-webkit-scrollbar-thumb {
   border-radius: 14px;
   padding: 1.8rem 2.2rem;
   margin-top: 1px;
+  margin-bottom: 5rem;
   position: relative;
   overflow: hidden;
 }
@@ -2899,9 +2904,9 @@ body.light-mode ::-webkit-scrollbar-thumb {
 @media (max-width: 520px) {
   .ps-section { padding: 4rem 1.2rem; }
   .ps-count { font-size: 3rem; }
-  .ps-plus  { font-size: 2.2rem; }
-  .ps-solved-label {font-size: .65rem;   }
+  .ps-plus  { font-size: 3rem; }
+  .ps-solved-label {font-size: .8rem;   }
   .ps-total-num  { font-size: 2.8rem; }
-  .ps-total-plus { font-size: 1.8rem; }
+  .ps-total-plus { font-size: 3rem; }
   .ps-total-bar  { padding: 1.2rem 1.4rem; }
 }
