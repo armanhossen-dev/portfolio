@@ -107,7 +107,7 @@ header {
 .hero-cta {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.6rem;
   opacity: 0;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -142,7 +142,7 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: transparent;
+  background: var(--glass);
   color: var(--muted);
   font-family: var(--font-body);
   font-size: 0.78rem;
@@ -340,7 +340,7 @@ body.light-mode .fnav-item::after {
 }
 
 /* ── Mobile ── */
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .floating-nav { display: none; }
 }
 
@@ -354,7 +354,7 @@ body.light-mode .fnav-item::after {
   position: relative;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .menu-btn {
     display: block;
     position: relative;
