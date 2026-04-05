@@ -2005,7 +2005,7 @@ footer {
 .skills { background: var(--bg); }
 .skills-inner { max-width: 1200px; margin: 0 auto; }
 
-.skills-table { width: 100%; }
+.skills-table { width: 100%; margin-top: 1rem;}
 
 .skills-row {
   display: flex;
