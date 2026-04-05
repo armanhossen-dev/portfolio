@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
       item.classList.toggle('active', href === current);
     });Z
   }
-
+  
   window.addEventListener('scroll', updateActive, { passive: true });
   updateActive(); /* run once on load */
 })();
