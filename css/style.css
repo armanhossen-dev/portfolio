@@ -2089,8 +2089,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 1px;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-top: 5rem;
   background: var(--glass);
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -2128,7 +2127,6 @@ footer {
 /* +NUM — big hero number */
 .ps-count-wrap {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   gap: 2px;
   line-height: 1;
@@ -2214,8 +2212,8 @@ footer {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 1.8rem 2.2rem;
-  margin-top: 1px;
-  margin-bottom: 5rem;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
   position: relative;
   overflow: hidden;
 }
