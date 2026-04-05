@@ -238,6 +238,55 @@ themeToggle.addEventListener('change', () => {
 })();
 
 
+
+// ── Problem Solving · Counter Animation ──────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const PS_DATA = {
+    'cnt-cf':  36,
+    'cnt-bc':  117,
+    'cnt-ac':  0,
+    'cnt-lc':  0,
+  };
+
+  function easeOutExpo(t) {
+    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+  }
+
+  function animateCounter(el, target, duration = 1800) {
+    let start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / duration, 1);
+      el.textContent = Math.floor(easeOutExpo(p) * target);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+
+  const section = document.querySelector('.ps-section');
+  if (!section) return;
+
+  let fired = false;
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting && !fired) {
+      fired = true;
+      let delay = 0;
+      for (const [id, target] of Object.entries(PS_DATA)) {
+        const el = document.getElementById(id);
+        if (el) setTimeout(() => animateCounter(el, target), delay);
+        delay += 120;
+      }
+      // total
+      const totalEl = document.getElementById('cnt-total');
+      if (totalEl) {
+        const sum = Object.values(PS_DATA).reduce((a, b) => a + b, 0);
+        setTimeout(() => animateCounter(totalEl, sum), 200);
+      }
+    }
+  }, { threshold: 0.25 }).observe(section);
+});
+
 // ── Vertical Sticky Social Bar + Logo ──
 (function () {
   const bar       = document.getElementById('stickySocial');
@@ -258,6 +307,7 @@ themeToggle.addEventListener('change', () => {
     }
   });
 })();
+
 
 // ── Floating Nav Tooltip ──
 (function () {
@@ -306,3 +356,4 @@ themeToggle.addEventListener('change', () => {
   window.addEventListener('scroll', updateActive, { passive: true });
   updateActive(); /* run once on load */
 })();
+
