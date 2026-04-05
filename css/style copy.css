@@ -2083,6 +2083,7 @@ footer {
 }
 .contrib-inner {
   max-width: 1200px;
+  height: 70vh;
   margin: 0 auto;
 }
 
@@ -2566,12 +2567,6 @@ body.light-mode .contrib-cell[data-level="4"] { background: var(--accent); }
 }
 
 
-
-
-
-
-
-
 /* Light mode state */
 body.light-mode .toggle-thumb {
   left: 32px;
@@ -2717,15 +2712,15 @@ body.light-mode ::-webkit-scrollbar-thumb {
 }
 
 /* ── Problem Solving ── */
-.ps-section { background: var(--bg); padding: 7rem 3rem; position: relative; }
-.ps-inner   { max-width: 1100px; margin: 0 auto; }
+.ps-section { background: var(--bg);}
+.ps-inner   { max-width: 1200px; height: 85vh; margin: 0 auto; }
 
 .ps-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1px;
   margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   background: var(--glass);
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -2735,7 +2730,7 @@ body.light-mode ::-webkit-scrollbar-thumb {
 /* Card */
 .ps-card {
   background: var(--card-hover);
-  padding: 2.4rem 2.5rem 1.75rem;
+  padding: 2.4rem 2rem 1.75rem;
   cursor: pointer;
   position: relative;
   display: flex;
@@ -2757,12 +2752,15 @@ body.light-mode ::-webkit-scrollbar-thumb {
 .ps-card.bc::after { background: #4caf50; }
 .ps-card.ac::after { background: #a67cff; }
 .ps-card.lc::after { background: #f5a623; }
+.ps-card.cc::after { background: #ffcb7c; }
+.ps-card.th::after { background: #237ef5; }
 
 /* +NUM — big hero number */
 .ps-count-wrap {
   display: flex;
-  align-items: baseline;
-  gap: 0;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 2px;
   line-height: 1;
   margin-bottom: 0.5rem;
 }
@@ -2773,10 +2771,13 @@ body.light-mode ::-webkit-scrollbar-thumb {
   font-weight: 700;
   line-height: 1;
 }
+
 .cf .ps-plus { color: #1f8dd6; }
 .bc .ps-plus { color: #4caf50; }
 .ac .ps-plus { color: #a67cff; }
 .lc .ps-plus { color: #f5a623; }
+.cc .ps-plus { color: #f7c12e; }
+.th .ps-plus { color: #0090e3; }
 
 .ps-count {
   font-family: var(--font-display2, sans-serif);
@@ -2785,25 +2786,28 @@ body.light-mode ::-webkit-scrollbar-thumb {
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
+
 .cf .ps-count { color: #1f8dd6; }
 .bc .ps-count { color: #4caf50; }
 .ac .ps-count { color: #a67cff; }
 .lc .ps-count { color: #f5a623; }
+.cc .ps-count { color: #f7c12e; }
+.th .ps-count { color: #0090e3; }
 
 /* PROBLEMS SOLVED label */
 .ps-solved-label {
   font-family: var(--font-tag, monospace);
-  font-size: 0.6rem;
-  letter-spacing: 2.5px;
+  font-size: .6rem;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.3rem;
 }
 
 /* Platform name */
 .ps-platform-name {
   font-family: var(--font-display2, sans-serif);
-  font-size: .98rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: var(--muted);
@@ -2823,10 +2827,13 @@ body.light-mode ::-webkit-scrollbar-thumb {
   font-size: 10px; font-weight: 700;
   border: 1px solid;
 }
+
 .cf .ps-logo-badge { background: rgba(31,141,214,0.10); color: #1f8dd6; border-color: rgba(31,141,214,0.22); }
 .bc .ps-logo-badge { background: rgba(76,175,80,0.10);  color: #4caf50; border-color: rgba(76,175,80,0.22);  }
-.ac .ps-logo-badge { background: rgba(166,124,255,0.10);color: #a67cff; border-color: rgba(166,124,255,0.22);}
+.ac .ps-logo-badge { background: rgba(166,124,255,0.10);color: #a67cff; border-color: rgba(166,124,255,0.22); }
 .lc .ps-logo-badge { background: rgba(245,166,35,0.10); color: #f5a623; border-color: rgba(245,166,35,0.22); }
+.cc .ps-logo-badge { background: rgba(245, 196, 35, 0.1); color: #f5b623; border-color: rgba(83, 56, 11, 0.22); }
+.th .ps-logo-badge { background: rgba(35, 144, 245, 0.1); color: #23a1f5; border-color: rgba(35, 214, 245, 0.22); }
 
 /* ── Total Bar ── */
 .ps-total-bar {
@@ -2852,15 +2859,15 @@ body.light-mode ::-webkit-scrollbar-thumb {
 .ps-total-left { display: flex; flex-direction: column; gap: 3px; }
 .ps-total-tag {
   font-family: var(--font-tag, monospace);
-  font-size: 0.6rem;
+  font-size: 1.28rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
 }
 .ps-total-label {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--text);
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .ps-total-right {
@@ -2893,6 +2900,7 @@ body.light-mode ::-webkit-scrollbar-thumb {
   .ps-section { padding: 4rem 1.2rem; }
   .ps-count { font-size: 3rem; }
   .ps-plus  { font-size: 2.2rem; }
+  .ps-solved-label {font-size: .65rem;   }
   .ps-total-num  { font-size: 2.8rem; }
   .ps-total-plus { font-size: 1.8rem; }
   .ps-total-bar  { padding: 1.2rem 1.4rem; }
