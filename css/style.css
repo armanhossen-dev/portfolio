@@ -467,7 +467,7 @@ body.light-mode .fnav-item::after {
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 3.5rem, 5rem);
+  font-size: clamp(3rem, 3.2rem, 5rem);
   /* clamp(min, preferred, max) */
   align-items: center;
   justify-content: center;
@@ -2117,9 +2117,9 @@ footer {
   height: 2px;
 }
 
-.ps-card.cf::after { background: #1f8dd6; }
-.ps-card.bc::after { background: #4caf50; }
-.ps-card.ac::after { background: #a67cff; }
+.ps-card.cf::after { background: #b51f24; }
+.ps-card.bc::after { background: #ac3ce0; }
+.ps-card.ac::after { background: #7e7d7d; }
 .ps-card.lc::after { background: #f5a623; }
 .ps-card.cc::after { background: #d17539; }
 .ps-card.th::after { background: #237ef5; }
@@ -2140,7 +2140,7 @@ footer {
   line-height: 1;
 }
 
-.cf .ps-plus { color: #1484c4; }
+.cf .ps-plus { color: #b51f24; }
 .bc .ps-plus { color: #ac3ce0; }
 .ac .ps-plus { color: #7e7d7d; }
 .lc .ps-plus { color: #ffa217; }
@@ -2155,7 +2155,7 @@ footer {
   font-variant-numeric: tabular-nums;
 }
 
-.cf .ps-count { color: #1484c4; }
+.cf .ps-count { color: #b51f24; }
 .bc .ps-count { color: #ac3ce0; }
 .ac .ps-count { color: #7e7d7d; }
 .lc .ps-count { color: #ffa217; }
@@ -2196,7 +2196,7 @@ footer {
   border: 1px solid;
 }
 
-.cf .ps-logo-badge { background: rgba(20, 130, 194, 0.1); color: #1484c4; border-color: rgba(20, 130, 194, 0.22); }
+.cf .ps-logo-badge { background: rgba(181, 31, 36, 0.1); color: #b51f24; border-color: rgba(181, 31, 36, 0.22); }
 .bc .ps-logo-badge { background: rgba(172, 60, 224, 0.1);  color: #ac3ce0; border-color: rgba(172, 60, 224, 0.22); }
 .ac .ps-logo-badge { background: rgba(126, 125, 125, 0.1);color: #7e7d7d; border-color: rgba(126, 125, 125, 0.22); }
 .lc .ps-logo-badge { background: rgba(255, 163, 26, 0.1); color: #ffa217; border-color: rgba(245, 166, 35, 0.22)}
