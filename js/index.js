@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const PS_DATA = {
     'cnt-cf':  32,
     'cnt-bc':  110,
-    'cnt-ac':  2,
+    'cnt-ac':  4,
     'cnt-lc':  0,
     'cnt-cc':  0,
     'cnt-th':  48,
