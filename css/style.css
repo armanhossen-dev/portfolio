@@ -849,7 +849,7 @@ section {
 .about-text p {
   font-size: 1rem;
   line-height: 1.9;
-  color: #aaa;
+  color: #8e8e8e;
   margin-bottom: 1.5rem;
 }
 .about-text p b { color: var(--text); font-weight: 500; }
@@ -1406,17 +1406,18 @@ section {
 .contact-links {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
+  gap: 0.9rem;
 }
 
 .contact-link {
+  background: var(--surface);
   display: flex;
   align-items: center;
   gap: 1rem;
   color: var(--muted);
   text-decoration: none;
-  font-size: 0.9rem;
-  padding: 0.8rem;
+  font-size: 1rem;
+  padding: 0.7rem;
   border-radius: 8px;
   transition: all 0.3s;
 }
@@ -2786,8 +2787,8 @@ body.light-mode {
   --bg: #EDEDED;
   --surface: #fff;
   --glass: rgba(59,130,246,0.03);
-  --border: rgba(59,130,246,0.10);
-  --card-border: rgba(59,130,246,0.15);
+  --border: rgba(0, 0, 0, 0.133);
+  --card-border: rgba(59,130,246,0.25);
   --shadow1: rgba(59,130,246,0.05);
   --shadow2: rgba(59,130,246,0.14);
   --shadow3: rgba(59,130,246,0.06);
@@ -2869,11 +2870,11 @@ body.light-mode ::-webkit-scrollbar-thumb {
 }
 
 .budget-pill {
-  font-size: 0.78rem;
+  font-size: 0.80rem;
   letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 0.4rem 1rem;
-  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
   border: 1px solid var(--border);
   color: var(--muted);
   background: var(--glass);
