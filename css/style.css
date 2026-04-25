@@ -126,7 +126,7 @@ header {
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.70rem 1.2rem;
+  padding: 0.70rem 1rem;
   border-radius: 10px;
   transition: all 0.3s;
   border: 1px solid var(--border);
@@ -150,7 +150,7 @@ header {
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.70rem 1.2rem;
+  padding: 0.70rem 1rem;
   border-radius: 10px;
   border: 1px solid var(--border);
   transition: all 0.3s;
@@ -166,7 +166,7 @@ header {
 
 @media (max-width: 480px) {
   .btn-ghost, .btn-primary{
-    padding: 0.60rem 1.4rem;
+    padding: 0.60rem 1rem;
     border-radius: 10px;
   }
   .hero-cta { flex-direction: column; width: 100%; }
@@ -524,9 +524,9 @@ body.light-mode .fnav-item::after {
 
 /* PHOTO CIRCLE */
 .hero-photo-circle {
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
+  width: 440px;
+  height: 440px;
+  border-radius: 5%;
   overflow: hidden;
   border: 2px solid var(--card-border);
   box-shadow:
@@ -655,8 +655,8 @@ body.light-mode .fnav-item::after {
   }
 
   .hero-photo-circle {
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
   }
 
   .orbit-item {
@@ -1601,8 +1601,8 @@ footer {
   }
 
   .hero-photo-circle {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
   }
 
   section {
@@ -1659,8 +1659,8 @@ footer {
   }
 
   .hero-photo-circle {
-    width: 250px;
-    height: 250px;
+    width: 320px;
+    height: 320px;
   }
 
   /* orbit radius reduction */
@@ -1757,8 +1757,8 @@ footer {
   }
 
   .hero-photo-circle {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
   }
 
   @keyframes counterSpinMd {
@@ -1874,8 +1874,8 @@ footer {
   }
 
   .hero-photo-circle {
-    width: 170px;
-    height: 170px;
+    width: 200px;
+    height: 200px;
   }
 
 
