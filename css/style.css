@@ -169,7 +169,7 @@ header {
     padding: 0.60rem 1rem;
     border-radius: 10px;
   }
-  .hero-cta { flex-direction: column; width: 100%; }
+  .hero-cta { width: 100%; }
 }
 
 /* group theme toggle + menu btn together on the right */
@@ -1723,8 +1723,8 @@ footer {
   }
 
   .hero-photo-wrap, .hero-photo {
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
   }
 
   @keyframes counterSpinMd {
@@ -1836,8 +1836,8 @@ footer {
 
   .hero-photo-wrap,
   .hero-photo {
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
   }
 
 
@@ -1922,8 +1922,8 @@ footer {
   }
 
   .hero-photo-wrap, .hero-photo {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
   }  
 
   @keyframes counterSpinXs {
