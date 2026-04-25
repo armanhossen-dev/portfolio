@@ -1709,6 +1709,7 @@ footer {
   }
 
   .hero-name {
+    margin-top: 1rem;
     font-size: clamp(3rem, 9vw, 5rem);
     letter-spacing: -1.5px;
   }
@@ -1830,6 +1831,7 @@ footer {
   }
 
   .hero-name {
+    margin-top: 1rem;
     font-size: clamp(2.6rem, 11vw, 4rem);
     letter-spacing: -1px;
   }
@@ -1917,6 +1919,7 @@ footer {
 @media (max-width: 360px) {
 
   .hero-name {
+    margin-top: 1rem;
     font-size: clamp(2.2rem, 12vw, 3.2rem);
     letter-spacing: -0.5px;
   }
