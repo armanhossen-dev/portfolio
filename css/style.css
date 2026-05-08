@@ -83,12 +83,26 @@ body {
 /* NOISE OVERLAY */
 body::before {
   content: '';
-  position: fixed; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.045;     /* tweak: 0.03–0.07 */
+  animation: noiseMove 0.5s steps(2) infinite;
   pointer-events: none;
   z-index: 0;
-  opacity: .4;
 }
+
+@keyframes noiseMove {
+  0%   { transform: translate(0, 0) }
+  25%  { transform: translate(-5%, -10%) }
+  50%  { transform: translate(-10%, 5%) }
+  75%  { transform: translate(5%, -5%) }
+  100% { transform: translate(0, 0) }
+}
+
 
 /* HEADER */
 header {
@@ -533,10 +547,7 @@ body.light-mode .fnav-item::after {
   border-radius: 15px;
   overflow: hidden;
   border: 2px solid var(--card-border);
-  box-shadow:
-    0 0 0 10px var(--shadow1),
-    0 0 10px var(--shadow2),
-    0 0 20px var(--shadow3);
+  box-shadow:0 0 0 10px var(--shadow1);
   position: relative;
   z-index: 2;
   transition: box-shadow 0.4s, border-color 0.4s;
@@ -546,8 +557,8 @@ body.light-mode .fnav-item::after {
   border-color: var(--accent);
   box-shadow:
     0 0 0 10px var(--shadow1),
-    0 0 10px var(--shadow2),
-    0 0 60px var(--shadow3);
+    0 0 50px var(--shadow2),
+    0 0 100px var(--shadow3);
 }
 
 .hero-photo img {
@@ -792,7 +803,7 @@ section {
   margin-bottom: 1rem;
 }
 .section-title2 {
-  color: #5554587c;
+  color: #848484;
   font-family: var(--font-display2);
   text-transform: uppercase;
   font-size: clamp(3rem, 6vw, 4.5rem);
