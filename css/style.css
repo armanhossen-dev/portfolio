@@ -501,7 +501,6 @@ body.light-mode .fnav-item::after {
   font-weight: 600;
 }
 
-
 /* RIGHT */
 .hero-right {
   display: flex;
@@ -515,17 +514,16 @@ body.light-mode .fnav-item::after {
 /* PHOTO WRAP */
 .hero-photo-wrap {
   position: relative;
-  width: 440px;
-  height: 440px;
+  width: 350px;
+  height: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* PHOTO CIRCLE */
 .hero-photo {
-  width: 440px;
-  height: 440px;
+  width: 350px;
+  height: 450px;
   border-radius: 15px;
   overflow: hidden;
   border: 2px solid var(--card-border);
@@ -637,7 +635,7 @@ body.light-mode .fnav-item::after {
 
   .hero-photo-wrap, .hero-photo {
     width: 350px;
-    height: 350px;
+    height: 450px;
   }
 
   .orbit-item {
@@ -1578,7 +1576,7 @@ footer {
 
   .hero-photo-wrap, .hero-photo {
     width: 350px;
-    height: 350px;
+    height: 450px;
   }
 
   section {
@@ -1592,8 +1590,8 @@ footer {
   /* NAV */
   header {
     padding: 1rem 2rem;
-  }
-
+  }hero-photo
+  
   nav {
     gap: 1.8rem;
   }
@@ -1631,25 +1629,8 @@ footer {
 
   .hero-photo-wrap, .hero-photo {
     width: 350px;
-    height: 350px;
+    height: 450px;
   }
-
-  /* orbit radius reduction */
-  @keyframes counterSpinLg {
-    from {
-      transform:
-        rotate(calc(var(--i) * 45deg))
-        translateX(170px)
-        rotate(calc(var(--i) * -45deg));
-    }
-    to {
-      transform:
-        rotate(calc(var(--i) * 45deg))
-        translateX(170px)
-        rotate(calc(var(--i) * -45deg - 360deg));
-    }
-  }
-  .orbit-item { animation-name: counterSpinLg; }
 
   .hero-bottom {
     flex-direction: row;
