@@ -1,9 +1,9 @@
 # Portfolio 2026
 
 ## DARK MODE 🖤
-![](https://github.com/armanhossen-dev/portfolio/blob/main/img/FullScreenDarkMode.png)
+![](https://github.com/armanhossen-dev/portfolio/blob/main/img/darkMode.png)
 
 ---
 
 ## LIGHT MODE 🤍
-![](https://github.com/armanhossen-dev/portfolio/blob/main/img/FullScreenLightMode.png)
+![](https://github.com/armanhossen-dev/portfolio/blob/main/img/lightMode.png)
