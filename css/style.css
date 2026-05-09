@@ -43,13 +43,40 @@ body.light-mode {
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+    /* Safari rendering optimization */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
   overflow-x: hidden;
+
+   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  /* GPU acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+/* Smooth animations */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Fix laggy sections/cards */
+.section,
+.card,
+.glass,
+.hero {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* PRELOADER */
@@ -103,7 +130,6 @@ body::before {
   100% { transform: translate(0, 0) }
 }
 
-
 /* HEADER */
 header {
   position: fixed;
@@ -116,6 +142,8 @@ header {
   z-index: 100;
   background: transparent;
   overflow: visible; 
+  will-change: transform;
+  transform: translate3d(0,0,0);
 }
 
 .no-select {
