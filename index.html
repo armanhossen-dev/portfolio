@@ -441,7 +441,7 @@
             <!-- Filter buttons -->
             <div class="filters">
             <button class="filter-btn active" onclick="filterProjects('all', this)">All <span class="filter-count">8</span></button>
-            <button class="filter-btn" onclick="filterProjects('web', this)">Web <span class="filter-count">6</span></button>
+            <button class="filter-btn" onclick="filterProjects('web', this)">Web <span class="filter-count"></span></button>
             <button class="filter-btn" onclick="filterProjects('app', this)">App <span class="filter-count">2</span></button>
             </div>
 
@@ -583,8 +583,8 @@
                 <span class="tag">Google Sheets API</span>
                 </div>
                 <div class="card-actions">
-                <button class="action-btn"><i class="ti ti-external-link"></i> Live Preview</button>
-                <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
+                    <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
+                    <button class="action-btn"><i class="ti ti-external-link"></i> Live Preview</button>
                 </div>
             </div>
 
@@ -608,7 +608,8 @@
                 <span class="tag">Chart.js</span>
                 </div>
                 <div class="card-actions">
-                <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
+                    <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
+                    <button class="action-btn"><i class="ti ti-external-link"></i> Live Preview</button>
                 </div>
             </div>
 
@@ -630,12 +631,14 @@
                 <span class="tag">CSS</span>
                 </div>
                 <div class="card-actions">
-                <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
+                    <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
                 </div>
             </div>
 
             </div><!-- /projects-grid -->
         </section>
+
+        
 
         <!-- education -->
         <section class="edu-section" id="edu">
@@ -684,7 +687,6 @@
                         />
                         <div class="edu-photo-fallback"><i class="fa-solid fa-graduation-cap"></i></div>
                     </div>
-
                     </div>
                 </div><!-- /edu-card -->
 
