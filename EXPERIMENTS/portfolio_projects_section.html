@@ -1,0 +1,174 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.root{padding:1.5rem 0;font-family:var(--font-sans)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
+.filter-btn{font-size:12px;padding:5px 14px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary);cursor:pointer;transition:all .2s}
+.filter-btn.active{background:var(--color-text-primary);color:var(--color-background-primary);border-color:var(--color-text-primary)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.1rem 1.2rem;display:flex;flex-direction:column;gap:10px;transition:border-color .2s,transform .15s}
+.card:hover{border-color:var(--color-border-secondary);transform:translateY(-2px)}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.card-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.type-badge{font-size:10px;padding:3px 8px;border-radius:10px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.web-badge{background:#E6F1FB;color:#0C447C}
+.app-badge{background:#EAF3DE;color:#27500A}
+.title{font-size:15px;font-weight:500;color:var(--color-text-primary);line-height:1.3}
+.subtitle{font-size:12px;color:var(--color-text-tertiary);font-style:italic}
+.desc{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+.tag{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--color-background-secondary);color:var(--color-text-secondary);border:0.5px solid var(--color-border-tertiary)}
+.actions{display:flex;gap:8px;margin-top:auto;padding-top:6px;border-top:0.5px solid var(--color-border-tertiary)}
+.btn{font-size:12px;padding:5px 12px;border-radius:6px;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary);cursor:pointer;display:flex;align-items:center;gap:4px;text-decoration:none;transition:all .2s}
+.btn:hover{background:var(--color-background-secondary);color:var(--color-text-primary)}
+.btn.primary{background:var(--color-text-primary);color:var(--color-background-primary);border-color:var(--color-text-primary)}
+.btn.primary:hover{opacity:.85}
+.hidden{display:none}
+</style>
+
+<h2 class="sr-only">Portfolio projects — web apps and desktop/mobile applications</h2>
+
+<div class="root">
+  <div class="filters">
+    <button class="filter-btn active" onclick="filter('all',this)">All (9)</button>
+    <button class="filter-btn" onclick="filter('web',this)">Web (7)</button>
+    <button class="filter-btn" onclick="filter('app',this)">App (2)</button>
+  </div>
+
+  <div class="grid" id="grid">
+
+    <div class="card" data-type="web">
+      <div class="card-top">
+        <div>
+          <div class="card-meta"><span class="type-badge web-badge">Web</span><span class="subtitle">2024 → v2.0 2025</span></div>
+          <p class="title">UNLOCKEDSTUDIO</p>
+        </div>
+        <i class="ti ti-layout-grid" style="font-size:20px;color:var(--color-text-tertiary)" aria-hidden="true"></i>
+      </div>
+      <p class="desc">Collaborative platform for hosting and showcasing digital comics. v2.0 introduced a starry animated background and full glassmorphism UI overhaul.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Glassmorphism</span></div>
+      <div class="actions">
+        <button class="btn" onclick="sendPrompt('Tell me more about UNLOCKEDSTUDIO v1 vs v2')">Details ↗</button>
+        <button class="btn primary"><i class="ti ti-code" aria-hidden="true"></i> View Code</button>
+      </div>
+    </div>
+
+    <div class="card" data-type="web">
+      <div class="card-top">
+        <div>
+          <div class="card-meta"><span class="type-badge web-badge">Web</span></div>
+          <p class="title">Fitness Chatbot</p>
+        </div>
+        <i class="ti ti-robot" style="font-size:20px;color:var(--color-text-tertiary)" aria-hidden="true"></i>
+      </div>
+      <p class="desc">Academic web design project with a creative layout and an integrated AI-powered chatbot for fitness guidance via Chatbase.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Chatbase AI</span></div>
+      <div class="actions">
+        <button class="btn primary"><i class="ti ti-code" aria-hidden="true"></i> View Code</button>
+      </div>
+    </div>
+
+    <div class="card" data-type="web">
+      <div class="card-top">
+        <div>
+          <div class="card-meta"><span class="type-badge web-badge">Web · App</span></div>
+          <p class="title">Dark Time</p>
+        </div>
+        <i class="ti ti-clock" style="font-size:20px;color:var(--color-text-tertiary)" aria-hidden="true"></i>
+      </div>
+      <p class="desc">Clean aesthetic digital clock with flip-clock animations, glassmorphism cards, and fluid viewport-relative typography. Responsive for both web and mobile.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">JetBrains Mono</span></div>
+      <div class="actions">
+        <button class="btn primary"><i class="ti ti-code" aria-hidden="true"></i> View Code</button>
+      </div>
+    </div>
+
+    <div class="card" data-type="web">
+      <div class="card-top">
+        <div>
+          <div class="card-meta"><span class="type-badge web-badge">Web</span></div>
+          <p class="title">Cloud Tasks</p>
+        </div>
+        <i class="ti ti-checklist" style="font-size:20px;color:var(--color-text-tertiary)" aria-hidden="true"></i>
+      </div>
+      <p class="desc">Minimal task manager web app with local browser storage. Supports adding and deleting daily tasks — no backend required.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">LocalStorage</span></div>
+      <div class="actions">
+        <button class="btn primary"><i class="ti ti-code" aria-hidden="true"></i> View Code</button>
+      </div>
+    </div>
+
+    <div class="card" data-type="web">
+      <div class="card-top">
+        <div>
+          <div class="card-meta"><span class="type-badge web-badge">Web</span></div>
+          <p class="title">3D Web</p>
+        </div>
+        <i class="ti ti-box" style="font-size:20px;color:var(--color-text-tertiary)" aria-hidden="true"></i>
+      </div>
+      <p class="desc">Creative CSS experiment exploring 3D transforms, interactive elements, and modern animation techniques in a pure front-end environment.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">3D Transforms</span><span class="tag">Animation</span></div>
+      <div class="actions">
+        <button class="btn primary"><i class="ti ti-code" aria-hidden="true"></i> View Code</button>
+      </div>
+    </div>
+
+    <div class="card" data-type="web">
+      <div class="card-top">
+        <div>
+          <div class="card-meta"><span class="type-badge web-badge">Web · In Development</span></div>
+          <p class="title">Portfolio — AHRN</p>
+        </div>
+        <i class="ti ti-briefcase" style="font-size:20px;color:var(--color-text-tertiary)" aria-hidden="true"></i>
+      </div>
+      <p class="desc">Personal developer portfolio with dark glassmorphism theme, acid green accent, animated cursor, scroll-reveal sections, and a Google Sheets–backed contact form.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Google Sheets API</span></div>
+      <div class="actions">
+        <button class="btn"><i class="ti ti-external-link" aria-hidden="true"></i> Live Preview</button>
+        <button class="btn primary"><i class="ti ti-code" aria-hidden="true"></i> View Code</button>
+      </div>
+    </div>
+
+    <div class="card" data-type="app">
+      <div class="card-top">
+        <div>
+          <div class="card-meta"><span class="type-badge app-badge">App</span></div>
+          <p class="title">Asha Bank</p>
+        </div>
+        <i class="ti ti-building-bank" style="font-size:20px;color:var(--color-text-tertiary)" aria-hidden="true"></i>
+      </div>
+      <p class="desc">Full-stack bank management system with role-based access control, Chart.js dashboard analytics, and a glassmorphism UI. Built as a team project.</p>
+      <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">JavaScript</span><span class="tag">CSS</span><span class="tag">Chart.js</span></div>
+      <div class="actions">
+        <button class="btn primary"><i class="ti ti-code" aria-hidden="true"></i> View Code</button>
+      </div>
+    </div>
+
+    <div class="card" data-type="app">
+      <div class="card-top">
+        <div>
+          <div class="card-meta"><span class="type-badge app-badge">App</span></div>
+          <p class="title">StudentNest</p>
+        </div>
+        <i class="ti ti-school" style="font-size:20px;color:var(--color-text-tertiary)" aria-hidden="true"></i>
+      </div>
+      <p class="desc">Java desktop application for student management, built with JavaFX for a modern native UI experience. Manages student records with a clean interface.</p>
+      <div class="tags"><span class="tag">Java</span><span class="tag">JavaFX</span><span class="tag">CSS</span></div>
+      <div class="actions">
+        <button class="btn primary"><i class="ti ti-code" aria-hidden="true"></i> View Code</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function filter(type, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.card').forEach(c=>{
+    if(type==='all'||c.dataset.type===type){c.classList.remove('hidden')}
+    else{c.classList.add('hidden')}
+  });
+}
+</script>
