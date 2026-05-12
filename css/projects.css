@@ -1,0 +1,410 @@
+/* ============================================================
+   projects.css  —  Portfolio Projects Section
+   Design system matched to style.css (AHRN portfolio)
+   ============================================================ */
+
+/* ── CSS Variables (mirrors style.css root) ── */
+:root {
+  --bg:          #0a0a0a;
+  --surface:     #111111;
+  --glass:       rgba(255, 255, 255, 0.04);
+  --border:      rgba(255, 255, 255, 0.08);
+  --card-border: rgba(142, 242, 36, 0.536);
+  --shadow1:     rgba(142, 242, 36, 0.09);
+  --shadow2:     rgba(142, 242, 36, 0.28);
+  --accent:      #85eb18;
+  --accent-tag:  #84fc03;
+  --text:        #eaeaea;
+  --muted:       #b0b0b0;
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-tag:     'Red Rose', sans-serif;
+}
+
+/* ── Light mode override ── */
+body.light-mode {
+  --bg:          #fff;
+  --surface:     rgb(247, 249, 250);
+  --glass:       rgba(59, 130, 246, 0.03);
+  --border:      rgba(0, 0, 0, 0.133);
+  --card-border: rgba(59, 130, 246, 0.25);
+  --shadow1:     rgba(59, 130, 246, 0.05);
+  --shadow2:     rgba(59, 130, 246, 0.14);
+  --accent:      #3f78f3;
+  --accent-tag:  #47b2f1;
+  --text:        #0a0f1e;
+  --muted:       #2b2c2d;
+}
+
+/* ── Base reset (scoped) ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+/* ── Accessibility ── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================================
+   SECTION WRAPPER
+   ============================================================ */
+.projects-section {
+  max-width: 1200px; margin: 0 auto; 
+  padding: 7rem 0rem;
+  position: relative;
+}
+
+/* ── Section header ── */
+.section-header {
+  margin-bottom: 2.5rem;
+}
+
+.section-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+
+/* ============================================================
+   FILTER BUTTONS
+   ============================================================ */
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  color: #0a0a0a;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.filter-count {
+  font-size: 0.68rem;
+  opacity: 0.75;
+}
+
+/* ============================================================
+   PROJECTS GRID
+   ============================================================ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+/* ============================================================
+   PROJECT CARD
+   ============================================================ */
+.project-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.3rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Subtle green glow on top edge */
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0% 0%, var(--shadow1), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.project-card:hover {
+  border-color: var(--card-border);
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 32px var(--shadow1),
+    0 0 0 0.5px var(--card-border);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+/* hidden (filtered out) */
+.project-card.hidden {
+  display: none;
+}
+
+/* ── Card header row ── */
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* ── Card meta (badge + year) ── */
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+/* ── Type badges ── */
+.type-badge {
+  font-family: var(--font-tag);
+  font-size: 0.60rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 10px;
+}
+
+.badge-web {
+  background: rgba(59, 130, 246, 0.12);
+  color: #60a5fa;
+  border: 0.5px solid rgba(59, 130, 246, 0.25);
+}
+
+body.light-mode .badge-web {
+  background: #E6F1FB;
+  color: #0C447C;
+  border-color: rgba(12, 68, 124, 0.18);
+}
+
+.badge-app {
+  background: rgba(133, 235, 24, 0.10);
+  color: var(--accent);
+  border: 0.5px solid rgba(133, 235, 24, 0.25);
+}
+
+body.light-mode .badge-app {
+  background: #EAF3DE;
+  color: #27500A;
+  border-color: rgba(39, 80, 10, 0.18);
+}
+
+/* ── Year / subtitle ── */
+.card-year {
+  font-size: 0.70rem;
+  color: var(--muted);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* ── Card title ── */
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+}
+
+/* ── Card icon ── */
+.card-icon {
+  font-size: 1.25rem;
+  color: var(--muted);
+  opacity: 0.55;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: color 0.3s, opacity 0.3s;
+}
+
+.project-card:hover .card-icon {
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* ── Description ── */
+.card-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ── Tags ── */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag {
+  font-family: var(--font-tag);
+  font-size: 0.68rem;
+  font-weight: 400;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  border: 0.5px solid var(--border);
+  letter-spacing: 0.3px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.project-card:hover .tag {
+  border-color: rgba(133, 235, 24, 0.18);
+}
+
+body.light-mode .tag {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* ── Action buttons ── */
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 0.5px solid var(--border);
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.action-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--shadow1);
+}
+
+/* Primary (solid accent) button */
+.action-btn.action-primary {
+  background: var(--accent);
+  color: #0a0a0a;
+  border-color: var(--accent);
+  font-weight: 600;
+  box-shadow: 0 0 12px var(--shadow1);
+}
+
+.action-btn.action-primary:hover {
+  background: var(--accent-tag);
+  border-color: var(--accent-tag);
+  box-shadow: 0 0 20px var(--shadow2);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1080px) {
+  .projects-section {
+    padding: 4rem 5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 3rem 1.2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .project-card {
+    padding: 1.1rem 1.1rem;
+  }
+
+  .filters {
+    gap: 6px;
+  }
+
+  .filter-btn {
+    font-size: 0.70rem;
+    padding: 5px 12px;
+  }
+}

@@ -359,3 +359,14 @@ document.addEventListener('DOMContentLoaded', () => {
   updateActive(); /* run once on load */
 })();
 
+function filterProjects(type, btn) {
+document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+document.querySelectorAll('.project-card').forEach(card => {
+    if (type === 'all' || card.dataset.type === type) {
+    card.classList.remove('hidden');
+    } else {
+    card.classList.add('hidden');
+    }
+});
+}

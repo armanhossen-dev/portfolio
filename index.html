@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/projects.css">
 </head>
 <body>
         <!-- preloader  -->
@@ -381,8 +382,9 @@
         </div>
         </section>
 
+
         <!-- projects  -->
-        <section class="projects" id="projects">
+        <!-- <section class="projects" id="projects">
             <div class="projects-inner">
                 <span class="section-tag reveal">What I've Built</span>
                 <h2 class="section-title reveal">Projects<span style="color: var(--accent);">.</span></h2>
@@ -425,6 +427,214 @@
                     </a>
                 </div>
             </div>
+        </section> -->
+
+        <section class="projects-section" id="projects">
+            <h2 class="sr-only">Portfolio projects — web apps and desktop/mobile applications</h2>
+
+            <!-- Section header -->
+            <div class="section-header">
+            <span class="section-label">Selected Work</span>
+            <h3 class="section-title">Projects</h3>
+            </div>
+
+            <!-- Filter buttons -->
+            <div class="filters">
+            <button class="filter-btn active" onclick="filterProjects('all', this)">All <span class="filter-count">8</span></button>
+            <button class="filter-btn" onclick="filterProjects('web', this)">Web <span class="filter-count">6</span></button>
+            <button class="filter-btn" onclick="filterProjects('app', this)">App <span class="filter-count">2</span></button>
+            </div>
+
+            <!-- Project cards grid -->
+            <div class="projects-grid" id="projects-grid">
+
+            <!-- UNLOCKEDSTUDIO -->
+            <div class="project-card" data-type="web">
+                <div class="card-header">
+                <div>
+                    <div class="card-meta">
+                    <span class="type-badge badge-web">Web</span>
+                    <span class="card-year">2024 → v2.0 2025</span>
+                    </div>
+                    <p class="card-title">UNLOCKEDSTUDIO</p>
+                </div>
+                <i class="ti ti-layout-grid card-icon" aria-hidden="true"></i>
+                </div>
+                <p class="card-desc">Collaborative platform for hosting and showcasing digital comics. v2.0 introduced a starry animated background and full glassmorphism UI overhaul.</p>
+                <div class="card-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Glassmorphism</span>
+                </div>
+                <div class="card-actions">
+                <button class="action-btn" onclick="sendPrompt('Tell me more about UNLOCKEDSTUDIO v1 vs v2')">Details <i class="ti ti-arrow-up-right"></i></button>
+                <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
+                </div>
+            </div>
+
+            <!-- Fitness Chatbot -->
+            <div class="project-card" data-type="web">
+                <div class="card-header">
+                <div>
+                    <div class="card-meta">
+                    <span class="type-badge badge-web">Web</span>
+                    </div>
+                    <p class="card-title">Fitness Chatbot</p>
+                </div>
+                <i class="ti ti-robot card-icon" aria-hidden="true"></i>
+                </div>
+                <p class="card-desc">Academic web design project with a creative layout and an integrated AI-powered chatbot for fitness guidance via Chatbase.</p>
+                <div class="card-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Chatbase AI</span>
+                </div>
+                <div class="card-actions">
+                <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
+                </div>
+            </div>
+
+            <!-- Dark Time -->
+            <div class="project-card" data-type="web">
+                <div class="card-header">
+                <div>
+                    <div class="card-meta">
+                    <span class="type-badge badge-web">Web · App</span>
+                    </div>
+                    <p class="card-title">Dark Time</p>
+                </div>
+                <i class="ti ti-clock card-icon" aria-hidden="true"></i>
+                </div>
+                <p class="card-desc">Clean aesthetic digital clock with flip-clock animations, glassmorphism cards, and fluid viewport-relative typography. Responsive for both web and mobile.</p>
+                <div class="card-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">JetBrains Mono</span>
+                </div>
+                <div class="card-actions">
+                <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
+                </div>
+            </div>
+
+            <!-- Cloud Tasks -->
+            <div class="project-card" data-type="web">
+                <div class="card-header">
+                <div>
+                    <div class="card-meta">
+                    <span class="type-badge badge-web">Web</span>
+                    </div>
+                    <p class="card-title">Cloud Tasks</p>
+                </div>
+                <i class="ti ti-checklist card-icon" aria-hidden="true"></i>
+                </div>
+                <p class="card-desc">Minimal task manager web app with local browser storage. Supports adding and deleting daily tasks — no backend required.</p>
+                <div class="card-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">LocalStorage</span>
+                </div>
+                <div class="card-actions">
+                <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
+                </div>
+            </div>
+
+            <!-- 3D Web -->
+            <div class="project-card" data-type="web">
+                <div class="card-header">
+                <div>
+                    <div class="card-meta">
+                    <span class="type-badge badge-web">Web</span>
+                    </div>
+                    <p class="card-title">3D Web</p>
+                </div>
+                <i class="ti ti-box card-icon" aria-hidden="true"></i>
+                </div>
+                <p class="card-desc">Creative CSS experiment exploring 3D transforms, interactive elements, and modern animation techniques in a pure front-end environment.</p>
+                <div class="card-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">3D Transforms</span>
+                <span class="tag">Animation</span>
+                </div>
+                <div class="card-actions">
+                <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
+                </div>
+            </div>
+
+            <!-- Portfolio — AHRN -->
+            <div class="project-card" data-type="web">
+                <div class="card-header">
+                <div>
+                    <div class="card-meta">
+                    <span class="type-badge badge-web">Web · In Development</span>
+                    </div>
+                    <p class="card-title">Portfolio — AHRN</p>
+                </div>
+                <i class="ti ti-briefcase card-icon" aria-hidden="true"></i>
+                </div>
+                <p class="card-desc">Personal developer portfolio with dark glassmorphism theme, acid green accent, animated cursor, scroll-reveal sections, and a Google Sheets–backed contact form.</p>
+                <div class="card-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Google Sheets API</span>
+                </div>
+                <div class="card-actions">
+                <button class="action-btn"><i class="ti ti-external-link"></i> Live Preview</button>
+                <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
+                </div>
+            </div>
+
+            <!-- Asha Bank -->
+            <div class="project-card" data-type="app">
+                <div class="card-header">
+                <div>
+                    <div class="card-meta">
+                    <span class="type-badge badge-app">App</span>
+                    </div>
+                    <p class="card-title">Asha Bank</p>
+                </div>
+                <i class="ti ti-building-bank card-icon" aria-hidden="true"></i>
+                </div>
+                <p class="card-desc">Full-stack bank management system with role-based access control, Chart.js dashboard analytics, and a glassmorphism UI. Built as a team project.</p>
+                <div class="card-tags">
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Chart.js</span>
+                </div>
+                <div class="card-actions">
+                <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
+                </div>
+            </div>
+
+            <!-- StudentNest -->
+            <div class="project-card" data-type="app">
+                <div class="card-header">
+                <div>
+                    <div class="card-meta">
+                    <span class="type-badge badge-app">App</span>
+                    </div>
+                    <p class="card-title">StudentNest</p>
+                </div>
+                <i class="ti ti-school card-icon" aria-hidden="true"></i>
+                </div>
+                <p class="card-desc">Java desktop application for student management, built with JavaFX for a modern native UI experience. Manages student records with a clean interface.</p>
+                <div class="card-tags">
+                <span class="tag">Java</span>
+                <span class="tag">JavaFX</span>
+                <span class="tag">CSS</span>
+                </div>
+                <div class="card-actions">
+                <button class="action-btn action-primary"><i class="ti ti-code"></i> View Code</button>
+                </div>
+            </div>
+
+            </div><!-- /projects-grid -->
         </section>
 
         <!-- education -->
