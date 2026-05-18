@@ -40,42 +40,6 @@ body.light-mode {
   --b2: #0ea5e9;
   --b3: #0284c7;
 }
-/* red and black shade
-:root {
-  --bg: #080808;
-  --surface: #101010;
-  --glass: rgba(255,255,255,0.04);
-  --border: rgba(255,255,255,0.08);
-  --card-border: rgba(192, 26, 26, 0.5);
-  --shadow1: rgba(192, 26, 26, 0.09);
-  --shadow2: rgba(192, 26, 26, 0.28);
-  --shadow3: rgba(192, 26, 26, 0.10);
-  --accent: #c01a1a;
-  --accent_tag: #e02020;
-  --text: #eaeaea;
-  --muted: #888888;
-  --b1: #1a0505;
-  --b2: #6b0d0d;
-  --b3: #c01a1a;
-}
-
-body.light-mode {
-  --bg: #faf8f5;
-  --surface: #f2ede8;
-  --glass: rgba(176, 24, 24, 0.03);
-  --border: rgba(0, 0, 0, 0.10);
-  --card-border: rgba(176, 24, 24, 0.25);
-  --shadow1: rgba(176, 24, 24, 0.05);
-  --shadow2: rgba(176, 24, 24, 0.14);
-  --shadow3: rgba(176, 24, 24, 0.06);
-  --accent: #b81818;
-  --accent_tag: #d42020;
-  --text: #0f0c0c;
-  --muted: #4a4444;
-  --b1: #f5c6c6;
-  --b2: #e06060;
-  --b3: #b81818;
-} */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
