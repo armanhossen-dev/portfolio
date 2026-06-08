@@ -111,3 +111,7 @@ Valuable stuff
 
 
 #jobseekers #intern #resume #remotejobs #career
+
+data-img="ss/fitness-chatbot.png"
+Change to:
+data-img="ss/fitness-chatbot.png"

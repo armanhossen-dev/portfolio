@@ -352,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
     items.forEach(item => {
       const href = item.getAttribute('href').replace('#', '');
       item.classList.toggle('active', href === current);
-    });Z
+    });
   }
   
   window.addEventListener('scroll', updateActive, { passive: true });

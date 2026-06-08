@@ -16,7 +16,7 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/pro.css">
 </head>
 <body>
         <!-- preloader  -->
@@ -449,13 +449,13 @@
             <div class="projects-grid" id="projects-grid">
 
             <!-- Fitness Chatbot -->
-            <div class="project-card" data-type="web"
-                data-name="Finenzo"
-                data-tag="Mobile App"
-                data-url="finenzo.app"
-                data-color="#0f2a1e"
-                data-accent="#22c55e">
-                
+<div class="project-card" data-type="web"
+  data-name="Fitness Chatbot"
+  data-tag="Web App"
+  data-url="fitnessbot.vercel.app"
+  data-color="#75746d"
+  data-accent="#85eb18"
+data-img="img/ss/fitness-chatbot.png">
                 <div class="card-header">
                 <div>
                     <div class="card-meta">
@@ -484,7 +484,13 @@
             </div>
 
             <!-- UNLOCKEDSTUDIO -->
-            <div class="project-card" data-type="web">
+<div class="project-card" data-type="web"
+  data-name="Unlocked Studio"
+  data-tag="Web App"
+  data-url="unlockedstudio.vercel.app"
+  data-color="#bd3c4d"
+  data-accent="#85eb18"
+data-img="img/ss/unlocked-studio.png">
                 <div class="card-header">
                 <div>
                     <div class="card-meta">
@@ -513,7 +519,13 @@
             </div>
             
             <!-- Dark Time -->
-            <div class="project-card" data-type="web">
+<div class="project-card" data-type="web"
+  data-name="Dark Time"
+  data-tag="Web App"
+  data-url="darktime.vercel.app"
+  data-color="#000000"
+  data-accent="#85eb18"
+data-img="img/ss/darktime.png">
                 <div class="card-header">
                 <div>
                     <div class="card-meta">
@@ -544,7 +556,13 @@
             </div>
 
             <!-- Cloud Tasks -->
-            <div class="project-card" data-type="web">
+<div class="project-card" data-type="app"
+  data-name="Cloud Tasks"
+  data-tag="App"
+  data-url="cloudtasks.vercel.app"
+  data-color="#111111"
+  data-accent="#85eb18"
+data-img="img/ss/cloudtasks.png">
                 <div class="card-header">
                 <div>
                     <div class="card-meta">
@@ -575,7 +593,13 @@
             </div>
 
             <!-- 3D Web -->
-            <div class="project-card" data-type="web">
+<div class="project-card" data-type="web"
+  data-name="AHRN"
+  data-tag="Portfolio"
+  data-url="ahrn.vercel.app"
+  data-color="#554260"
+  data-accent="#85eb18"
+data-img="img/ss/ahrn.png">
                 <div class="card-header">
                 <div>
                     <div class="card-meta">
@@ -603,7 +627,13 @@
             </div>
 
             <!-- Portfolio — AHRN -->
-            <div class="project-card" data-type="web">
+            <div class="project-card" data-type="web"
+  data-name="Arman Hossen Ripon"
+  data-tag="Portfolio"
+  data-url="armanhossenripon.vercel.app"
+  data-color="#85eb18"
+  data-accent="#85eb18"
+data-img="img/ss/ripon.png">
                 <div class="card-header">
                 <div>
                     <div class="card-meta">
@@ -993,6 +1023,79 @@
         </footer>
 
     <script src="js/index.js"></script>
+
+<!-- Hover Preview Popup -->
+<div class="preview-popup" id="previewPopup">
+  <div class="preview-browser-bar">
+    <div class="browser-dots">
+      <div class="browser-dot"></div>
+      <div class="browser-dot"></div>
+      <div class="browser-dot"></div>
+    </div>
+    <div class="browser-url" id="previewUrl"></div>
+  </div>
+  <div id="previewPlaceholder"></div>
+</div>
+
+<script>
+  const popup = document.getElementById('previewPopup');
+  const previewUrlEl = document.getElementById('previewUrl');
+  const previewPlaceholder = document.getElementById('previewPlaceholder');
+
+  function makePlaceholder(card) {
+    const div = document.createElement('div');
+    div.className = 'preview-screenshot-placeholder';
+    div.style.background = `linear-gradient(135deg, ${card.dataset.color || '#1a1a18'} 0%, #111 100%)`;
+    div.innerHTML = `
+      <span class="preview-proj-name">${card.dataset.name || ''}</span>
+      <span class="preview-proj-tag">${card.dataset.tag || ''}</span>
+      <span class="preview-label">No preview available</span>
+    `;
+    return div;
+  }
+
+  document.querySelectorAll('.project-card').forEach(card => {
+
+    card.addEventListener('mouseenter', () => {
+      previewUrlEl.textContent = card.dataset.url || '';
+      previewPlaceholder.innerHTML = '';
+
+      const url = card.dataset.url;
+
+      if (!url) {
+        previewPlaceholder.appendChild(makePlaceholder(card));
+        popup.classList.add('visible');
+        return;
+      }
+
+      const imgSrc = `https://api.microlink.io/?url=https://${url}&screenshot=true&meta=false&embed=screenshot.url`;
+
+      const img = document.createElement('img');
+      img.src = imgSrc;
+      img.className = 'preview-screenshot';
+      img.alt = card.dataset.name || '';
+      img.onerror = () => img.replaceWith(makePlaceholder(card));
+
+      previewPlaceholder.appendChild(img);
+      popup.classList.add('visible');
+    });
+
+    card.addEventListener('mousemove', e => {
+      const offset = 20;
+      let x = e.clientX + offset;
+      let y = e.clientY + offset;
+      if (x + 380 > window.innerWidth) x = e.clientX - 380 - offset;
+      if (y + 300 > window.innerHeight) y = e.clientY - 300 - offset;
+      popup.style.left = x + 'px';
+      popup.style.top = y + 'px';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      popup.classList.remove('visible');
+    });
+
+  });
+</script>
 
 </body>
 </html>

@@ -50,6 +50,11 @@ body {
   font-family: var(--font-body);
 }
 
+/* Ensure body-appended popup clears everything */
+body > .preview-popup {
+  z-index: 99999;
+}
+
 /* ── Accessibility ── */
 .sr-only {
   position: absolute;
@@ -164,6 +169,7 @@ body {
   transition: border-color 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
 }
 
 /* Subtle green glow on top edge */
@@ -366,6 +372,145 @@ body.light-mode .tag {
 }
 
 /* ============================================================
+   HOVER PREVIEW POPUP
+   ============================================================ */
+.preview-popup {
+  position: fixed;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0;
+  transform: scale(0.88) translateY(10px);
+  transition: opacity 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 4px 16px rgba(0, 0, 0, 0.2);
+  width: 380px;
+  background: #1a1a18;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.preview-popup.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Browser bar inside popup */
+.preview-browser-bar {
+  background: #111110;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.browser-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.browser-dot:nth-child(1) { background: #ff5f57; }
+.browser-dot:nth-child(2) { background: #febc2e; }
+.browser-dot:nth-child(3) { background: #28c840; }
+
+.browser-url {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: var(--font-body);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Screenshot or placeholder area */
+.preview-screenshot {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.preview-screenshot-placeholder {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+}
+
+.preview-screenshot-placeholder .preview-proj-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.preview-screenshot-placeholder .preview-proj-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* "Click to visit" pill label */
+.preview-label {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 99px;
+  white-space: nowrap;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Light mode popup tweaks */
+body.light-mode .preview-popup {
+  background: #fff;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18), 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .preview-browser-bar {
+  background: #f0eeeb;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .browser-url {
+  background: rgba(0, 0, 0, 0.07);
+  color: #888;
+}
+
+body.light-mode .preview-screenshot-placeholder {
+  background: linear-gradient(135deg, #1a1a18 0%, #2d2d2a 100%);
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1080px) {
@@ -382,6 +527,11 @@ body.light-mode .tag {
   .projects-grid {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 12px;
+  }
+
+  /* Hide preview popup on touch devices */
+  .preview-popup {
+    display: none;
   }
 }
 

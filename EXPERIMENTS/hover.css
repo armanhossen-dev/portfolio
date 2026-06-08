@@ -1,4 +1,3 @@
-  <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -613,4 +612,3 @@
       .contact-section { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 8px; text-align: center; }
     }
-  </style>
