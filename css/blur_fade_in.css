@@ -1,0 +1,41 @@
+@keyframes blurFadeInChar {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+}
+
+.blur-text { display: inline-flex; flex-wrap: wrap; }
+
+.blur-text .c {
+  display: inline-block;
+  white-space: pre;
+  opacity: 0;
+  animation: blurFadeInChar 500ms
+    cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+}
+
+/* 
+/* JS — apply per char 
+el.querySelectorAll('.c').forEach((ch, i) => {
+  ch.style.animationDelay = (i * 45) + 'ms';
+});
+
+
+// Drop this into your JS — works on any element
+function animateChars(el) {
+  el.innerHTML = [...el.textContent]
+    .map((ch, i) =>
+      `<span class="c" style="animation-delay:${i * 45}ms">${ch}</span>`
+    ).join('');
+}
+
+animateChars(document.querySelector('.blur-text'));
+*/

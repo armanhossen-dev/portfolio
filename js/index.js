@@ -1,15 +1,69 @@
+const themeToggle = document.getElementById('themeToggle');
+// Load saved theme on page start
+try {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+    themeToggle.checked = true;
+  } else {
+    document.body.classList.remove('light-mode');
+    themeToggle.checked = false;
+  }
+} catch(e) {}
+// Toggle on change
+themeToggle.addEventListener('change', () => {
+  document.body.classList.toggle('light-mode', themeToggle.checked);
+  try {
+    localStorage.setItem('theme', themeToggle.checked ? 'light' : 'dark');
+  } catch(e) {}
+});
 
-// preloader
-const preCount = document.getElementById('preCount');
-const line = document.getElementById('preloadLine');
-let count = 0;
-const iv = setInterval(() => {
-  count += Math.floor(Math.random() * 10) + 1;
-  if (count >= 100) { count = 100; clearInterval(iv); }
-  preCount.textContent = count;
-}, 80);
-setTimeout(() => { line.style.width = '100%'; }, 100);
-setTimeout(() => { document.getElementById('preloader').classList.add('hidden'); }, 2000);
+(function () {
+  const preloader = document.getElementById('preloader');
+  const countEl  = document.getElementById('preCount');
+  const barEl    = document.getElementById('preloadLine');
+  const statusEl = document.getElementById('preStatus');
+
+  const stages = [
+    { label: 'Initialising...', to: 15, dur: 400 },
+    { label: 'Loading assets...', to: 42, dur: 600 },
+    { label: 'Fetching fonts...', to: 68, dur: 500 },
+    { label: 'Rendering layout...', to: 88, dur: 400 },
+    { label: 'Almost there...', to: 100, dur: 350 },
+  ];
+
+  let pct = 0, stageIdx = 0, rafId;
+
+  function runStage() {
+    if (stageIdx >= stages.length) return finish();
+    const { label, to, dur } = stages[stageIdx];
+    statusEl.textContent = label;
+    const from = pct;
+    let start  = null;
+
+    function step(ts) {
+      if (!start) start = ts;
+      const p   = Math.min((ts - start) / dur, 1);
+      const val = Math.round(from + (to - from) * p);
+      pct = val;
+      countEl.textContent = val;
+      barEl.style.setProperty('--bar-w', val + '%');
+      if (p < 1) { rafId = requestAnimationFrame(step); }
+      else { stageIdx++; setTimeout(runStage, 80); }
+    }
+    rafId = requestAnimationFrame(step);
+  }
+
+  function finish() {
+    setTimeout(() => {
+      preloader.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  document.body.style.overflow = 'hidden';
+  runStage();
+})();
 
 // header scroll
 window.addEventListener('scroll', () => {
@@ -39,6 +93,9 @@ document.querySelectorAll('.mn-link').forEach(a => {
     menuIconEl.className = 'fa-solid fa-bars';
   });
 });
+
+
+
 
 // typed
 new Typed('#typed', {
@@ -103,29 +160,6 @@ form.addEventListener('submit', async (e) => {
     sendBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
     sendBtn.disabled  = false;
   }, 2000);
-});
-
-// Theme toggle
-const themeToggle = document.getElementById('themeToggle');
-
-// Load saved theme on page start
-try {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
-    document.body.classList.add('light-mode');
-    themeToggle.checked = true;
-  } else {
-    document.body.classList.remove('light-mode');
-    themeToggle.checked = false;
-  }
-} catch(e) {}
-
-// Toggle on change
-themeToggle.addEventListener('change', () => {
-  document.body.classList.toggle('light-mode', themeToggle.checked);
-  try {
-    localStorage.setItem('theme', themeToggle.checked ? 'light' : 'dark');
-  } catch(e) {}
 });
 
 
@@ -370,3 +404,6 @@ document.querySelectorAll('.project-card').forEach(card => {
     }
 });
 }
+
+
+
